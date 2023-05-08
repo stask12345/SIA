@@ -1,0 +1,21 @@
+Each 50 es = 1 RP
+Getting new rank = 3 RP
+
+Developmental:
+- Meditation 30 mins (10es)
+- Sleep before 23 (5es)
+- Full Workout (5es)
+- Do 40 push-ups (5es)
+- Eat a fruit (5es)
+- Programming for at least 1h(10es)
+- Study for at least 30min(5es)
+- Productive day (10es)
+Regressive:
+- Sleep after  24 (-5es)
+- Have fun (-20es)
+- Wasted day (-10es)
+- Shopping Spree (-15es)
+Rewards:
+- Have fun 3 RP
+- 20zl Shopping Spree 2 RP
+- Free day 2 RP
