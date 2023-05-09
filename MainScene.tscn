@@ -105,7 +105,7 @@ texture = ExtResource("2_3kh0m")
 [node name="Square4" type="Sprite2D" parent="MainMenu/BackgroundDecoration"]
 self_modulate = Color(0.731609, 0.850492, 0.967576, 1)
 z_index = -1
-position = Vector2(500, 1034)
+position = Vector2(487, 1020)
 rotation = 0.785398
 texture = ExtResource("2_3kh0m")
 
