@@ -3,3 +3,6 @@ res://stats.gd
 res://System.gd
 res://TopMenu.gd
 res://Stats.tres
+res://line.gd
+res://MainMenu.gd
+res://menuButton.gd

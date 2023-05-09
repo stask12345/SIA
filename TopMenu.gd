@@ -7,5 +7,6 @@ func _ready():
 
 func updateStats():
 	$RewardPoints.text = "Reward Points: " + str(system.stats.rewardPoints)
-	$Rank.text = "Rank:" + system.rankNames[system.stats.rank]
+	$Rank.text = "Rank: " + system.rankNames[system.stats.rank]
 	$Bar/Points.text = str(system.stats.expShards) + "/" + str(system.rankGoals[system.stats.rank])
+	$Bar/Line2D.barProgress(system.stats.expShards,system.rankGoals[system.stats.rank])
