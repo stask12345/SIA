@@ -1,6 +1,7 @@
+Button
+Label
 Container
 Sprite2D
-Label
 VBoxContainer
 ScrollContainer
 VScrollBar

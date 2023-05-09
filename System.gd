@@ -29,10 +29,10 @@ func updateExpSystem(shardsToAdd):
 			stats.rewardPoints += 1
 	
 	if stats.rank == 0 && stats.expShards < 0:
-		stats.expShars = 0
+		stats.expShards = 0
 	
-	if stats.expShard >= rankGoals[stats.rank]: #Level up
-		stats.expShard -= rankGoals[stats.rank]
+	if stats.expShards >= rankGoals[stats.rank]: #Level up
+		stats.expShards -= rankGoals[stats.rank]
 		if stats.rank == stats.maxRank:
 			stats.rewardPoints += 3
 			stats.maxRank += 1
@@ -40,8 +40,8 @@ func updateExpSystem(shardsToAdd):
 	
 	if stats.rank != 0 && stats.expShards < 0: #Level down
 		stats.rank -= 1
-		stats.expShard += rankGoals[stats.rank]
-		stats.expShard -= (5+(5*stats.rank))
+		stats.expShards += rankGoals[stats.rank]
+		stats.expShards -= (5+(5*stats.rank))
 	
 	$TopMenu.updateStats()
 
