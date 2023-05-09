@@ -1,5 +1,5 @@
 2a60927148abd1d33b818b535e306557
-::res://::1683643490
+::res://::1683644408
 barBackground.svg::CompressedTexture2D::6736578164597752537::1683615982::1683617240::1::::<><>::
 barDecoration.svg::CompressedTexture2D::2698685512260483316::1683615982::1683617240::1::::<><>::
 buttonBackground.svg::CompressedTexture2D::1977007697677434693::1683615982::1683617240::1::::<><>::
@@ -15,4 +15,3 @@ stats.gd::GDScript::-1::1683624816::0::1::::<>RefCounted<>::
 Stats.tres::Resource::874125194984082531::1683621972::0::1::::<><>::res://stats.gd
 System.gd::GDScript::-1::1683625014::0::1::::<>Node2D<>::
 TopMenu.gd::GDScript::-1::1683625062::0::1::::<>ColorRect<>::
-XenoviaCode.png::CompressedTexture2D::1079040589093108501::1683615982::1683615982::1::::<><>::

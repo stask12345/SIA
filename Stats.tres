@@ -7,3 +7,7 @@ script = ExtResource("1_ihkdl")
 expShards = 0
 rewardPoints = 0
 rank = 0
+maxRank = 0
+dayOfMonth = 999
+collectedExpShards = 0
+rewardsPointsAdded = 0

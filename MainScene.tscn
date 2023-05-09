@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://brlqj8iods1wr"]
+[gd_scene load_steps=18 format=3 uid="uid://brlqj8iods1wr"]
 
 [ext_resource type="Texture2D" uid="uid://3fxa7kaj8x30" path="res://buttonBackground.svg" id="1_88g5n"]
 [ext_resource type="Texture2D" uid="uid://c28iptu6bk0yf" path="res://barBackground.svg" id="1_ohnl1"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://MainMenu.gd" id="3_dw0ot"]
 [ext_resource type="Script" path="res://TopMenu.gd" id="4_4qhbr"]
 [ext_resource type="Script" path="res://menuButton.gd" id="5_e4urb"]
-[ext_resource type="Texture2D" uid="uid://qkyvuo6p2wdd" path="res://icon.svg" id="7_p7ymg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7ikwi"]
 font_size = 34
@@ -230,26 +229,6 @@ vertical_scroll_mode = 2
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_constants/separation = 100
-
-[node name="Icon" type="Sprite2D" parent="MainMenu/DevelopmentalMenu/ScrollContainer/VBoxContainer"]
-position = Vector2(1, 0)
-texture = ExtResource("7_p7ymg")
-
-[node name="Icon2" type="Sprite2D" parent="MainMenu/DevelopmentalMenu/ScrollContainer/VBoxContainer"]
-position = Vector2(1, 0)
-texture = ExtResource("7_p7ymg")
-
-[node name="Icon3" type="Sprite2D" parent="MainMenu/DevelopmentalMenu/ScrollContainer/VBoxContainer"]
-position = Vector2(1, 0)
-texture = ExtResource("7_p7ymg")
-
-[node name="Icon4" type="Sprite2D" parent="MainMenu/DevelopmentalMenu/ScrollContainer/VBoxContainer"]
-position = Vector2(1, 0)
-texture = ExtResource("7_p7ymg")
-
-[node name="Icon5" type="Sprite2D" parent="MainMenu/DevelopmentalMenu/ScrollContainer/VBoxContainer"]
-position = Vector2(5, 110)
-texture = ExtResource("7_p7ymg")
 
 [node name="TopMenu" type="ColorRect" parent="."]
 offset_left = -1.0
