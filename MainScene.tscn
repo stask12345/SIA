@@ -1,0 +1,253 @@
+[gd_scene load_steps=19 format=3 uid="uid://brlqj8iods1wr"]
+
+[ext_resource type="Texture2D" uid="uid://3fxa7kaj8x30" path="res://buttonBackground.svg" id="1_88g5n"]
+[ext_resource type="Texture2D" uid="uid://c28iptu6bk0yf" path="res://barBackground.svg" id="1_ohnl1"]
+[ext_resource type="Script" path="res://System.gd" id="1_tc4iy"]
+[ext_resource type="Texture2D" uid="uid://cptchtqkpb1ec" path="res://square.svg" id="2_3kh0m"]
+[ext_resource type="Resource" uid="uid://mpoyjw5ecmit" path="res://Stats.tres" id="2_647jq"]
+[ext_resource type="Script" path="res://line.gd" id="2_n6hmp"]
+[ext_resource type="Script" path="res://MainMenu.gd" id="3_dw0ot"]
+[ext_resource type="Script" path="res://TopMenu.gd" id="4_4qhbr"]
+[ext_resource type="Script" path="res://menuButton.gd" id="5_e4urb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7ikwi"]
+font_size = 34
+outline_size = 4
+shadow_size = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_1gwfn"]
+font_size = 21
+
+[sub_resource type="LabelSettings" id="LabelSettings_8yfeg"]
+font_size = 21
+
+[sub_resource type="Gradient" id="Gradient_hhys4"]
+colors = PackedColorArray(0.388235, 0.72549, 1, 1, 0.735744, 0.875733, 1, 1)
+
+[sub_resource type="Animation" id="Animation_bo0mj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:gradient")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("Gradient_hhys4")]
+}
+
+[sub_resource type="Animation" id="Animation_t7xdo"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:gradient")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ey7s3"]
+_data = {
+"RESET": SubResource("Animation_bo0mj"),
+"idle": SubResource("Animation_t7xdo")
+}
+
+[sub_resource type="SystemFont" id="SystemFont_cjhsi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0g8g5"]
+font = SubResource("SystemFont_cjhsi")
+font_size = 35
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="MainScene" type="Node2D"]
+script = ExtResource("1_tc4iy")
+stats = ExtResource("2_647jq")
+
+[node name="MainMenu" type="ColorRect" parent="."]
+offset_right = 541.0
+offset_bottom = 963.0
+color = Color(0.901961, 0.945098, 0.988235, 1)
+script = ExtResource("3_dw0ot")
+
+[node name="DevelopmentalButton" type="Sprite2D" parent="MainMenu"]
+self_modulate = Color(0.682353, 0.980392, 0.407843, 1)
+z_index = 2
+z_as_relative = false
+position = Vector2(272, 365)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_88g5n")
+script = ExtResource("5_e4urb")
+
+[node name="Shadow" type="Sprite2D" parent="MainMenu/DevelopmentalButton"]
+self_modulate = Color(0.538639, 0.836365, 0.219294, 1)
+z_index = 1
+z_as_relative = false
+texture = ExtResource("1_88g5n")
+offset = Vector2(5, 5)
+
+[node name="Label" type="Label" parent="MainMenu/DevelopmentalButton"]
+offset_left = -128.667
+offset_top = -118.667
+offset_right = 122.333
+offset_bottom = -68.6667
+text = "Developmental"
+label_settings = SubResource("LabelSettings_7ikwi")
+horizontal_alignment = 1
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="MainMenu/DevelopmentalButton"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-145.333, -127.333)
+scale = Vector2(0.371956, 0.0676759)
+texture_normal = ExtResource("1_ohnl1")
+
+[node name="RegressiveButton" type="Sprite2D" parent="MainMenu"]
+self_modulate = Color(0.984314, 0.243137, 0, 1)
+z_index = 2
+z_as_relative = false
+position = Vector2(270, 537)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_88g5n")
+
+[node name="Shadow" type="Sprite2D" parent="MainMenu/RegressiveButton"]
+self_modulate = Color(0.743919, 0.174178, 0, 1)
+z_index = 1
+z_as_relative = false
+texture = ExtResource("1_88g5n")
+offset = Vector2(5, 5)
+
+[node name="Label" type="Label" parent="MainMenu/RegressiveButton"]
+offset_left = -89.3333
+offset_top = -118.0
+offset_right = 87.6667
+offset_bottom = -68.0
+text = "Regressive"
+label_settings = SubResource("LabelSettings_7ikwi")
+
+[node name="RewardButton" type="Sprite2D" parent="MainMenu"]
+self_modulate = Color(0.0666667, 1, 1, 1)
+z_index = 2
+z_as_relative = false
+position = Vector2(272, 703)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_88g5n")
+
+[node name="Shadow" type="Sprite2D" parent="MainMenu/RewardButton"]
+self_modulate = Color(0, 0.909804, 0.909804, 1)
+z_index = 1
+z_as_relative = false
+texture = ExtResource("1_88g5n")
+offset = Vector2(5, 5)
+
+[node name="Label" type="Label" parent="MainMenu/RewardButton"]
+offset_left = -132.667
+offset_top = -116.0
+offset_right = 118.333
+offset_bottom = -66.0
+text = "Rewards"
+label_settings = SubResource("LabelSettings_7ikwi")
+horizontal_alignment = 1
+
+[node name="BackgroundDecoration" type="Node2D" parent="MainMenu"]
+z_index = 1
+
+[node name="Square" type="Sprite2D" parent="MainMenu/BackgroundDecoration"]
+self_modulate = Color(0.731609, 0.850492, 0.967576, 1)
+z_index = -1
+position = Vector2(84, 204)
+rotation = 0.785398
+texture = ExtResource("2_3kh0m")
+
+[node name="Square2" type="Sprite2D" parent="MainMenu/BackgroundDecoration"]
+self_modulate = Color(0.731609, 0.850492, 0.967576, 1)
+z_index = -1
+position = Vector2(460, 509)
+rotation = 0.785398
+texture = ExtResource("2_3kh0m")
+
+[node name="Square3" type="Sprite2D" parent="MainMenu/BackgroundDecoration"]
+self_modulate = Color(0.731609, 0.850492, 0.967576, 1)
+z_index = -1
+position = Vector2(115, 752)
+rotation = 0.785398
+texture = ExtResource("2_3kh0m")
+
+[node name="Square4" type="Sprite2D" parent="MainMenu/BackgroundDecoration"]
+self_modulate = Color(0.731609, 0.850492, 0.967576, 1)
+z_index = -1
+position = Vector2(500, 1034)
+rotation = 0.785398
+texture = ExtResource("2_3kh0m")
+
+[node name="TopMenu" type="ColorRect" parent="."]
+offset_left = -1.0
+offset_right = 541.0
+offset_bottom = 94.0
+color = Color(0, 0.517647, 0.815686, 1)
+script = ExtResource("4_4qhbr")
+
+[node name="RewardPoints" type="Label" parent="TopMenu"]
+layout_mode = 0
+offset_left = 341.0
+offset_top = 59.0
+offset_right = 543.0
+offset_bottom = 97.0
+text = "Reward Points: 7"
+label_settings = SubResource("LabelSettings_1gwfn")
+vertical_alignment = 1
+
+[node name="Rank" type="Label" parent="TopMenu"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 61.0
+offset_right = 86.0
+offset_bottom = 94.0
+text = "Rank: Sleeper"
+label_settings = SubResource("LabelSettings_8yfeg")
+
+[node name="Bar" type="Sprite2D" parent="TopMenu"]
+self_modulate = Color(0, 0.432535, 0.686277, 1)
+position = Vector2(265, 6.00001)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_ohnl1")
+
+[node name="Line2D" type="Line2D" parent="TopMenu/Bar"]
+position = Vector2(0, -1.42857)
+points = PackedVector2Array(-250, 41.4286, -208.571, 41.4286)
+width = 50.0
+default_color = Color(0.38762, 0.726839, 1, 1)
+gradient = SubResource("Gradient_hhys4")
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("2_n6hmp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TopMenu/Bar/Line2D"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_ey7s3")
+}
+
+[node name="Points" type="Label" parent="TopMenu/Bar"]
+offset_left = -95.7143
+offset_top = 7.14286
+offset_right = 102.286
+offset_bottom = 73.1429
+text = "10 / 1000"
+label_settings = SubResource("LabelSettings_0g8g5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EndMarker" type="Marker2D" parent="TopMenu/Bar"]
+position = Vector2(260, 40)
+
+[connection signal="pressed" from="MainMenu/DevelopmentalButton/TouchScreenButton" to="MainMenu" method="DevelopmentalButtonPressed"]
