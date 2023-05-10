@@ -3,3 +3,7 @@ res://stats.gd
 res://System.gd
 res://Stats.tres
 res://TopMenu.gd
+res://listItem.gd
+res://scripts/System.gd
+res://resources/Stats.tres
+res://resources/LineItem.tres

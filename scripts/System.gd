@@ -53,5 +53,5 @@ func loadData():
 		var r = ResourceLoader.load(savePath)
 		stats = r
 	else: #We don't have any save to load, so we create one
-		var s = preload("res://Stats.tres")
+		var s = preload("res://resources/Stats.tres")
 		stats = s

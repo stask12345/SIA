@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://w1ytnnagobm8"]
+
+[ext_resource type="Script" path="res://scripts/stats.gd" id="1_kol71"]
+
+[resource]
+script = ExtResource("1_kol71")
+expShards = 0
+rewardPoints = 0
+rank = 0
+maxRank = 0
+dayOfMonth = 999
+collectedExpShards = 0
+rewardsPointsAdded = 0

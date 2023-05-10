@@ -1,23 +1,33 @@
-[gd_scene load_steps=20 format=3 uid="uid://brlqj8iods1wr"]
+[gd_scene load_steps=28 format=3 uid="uid://314n5nllo05g"]
 
-[ext_resource type="Texture2D" uid="uid://3fxa7kaj8x30" path="res://buttonBackground.svg" id="1_88g5n"]
-[ext_resource type="Texture2D" uid="uid://c28iptu6bk0yf" path="res://barBackground.svg" id="1_ohnl1"]
-[ext_resource type="Script" path="res://System.gd" id="1_tc4iy"]
-[ext_resource type="Texture2D" uid="uid://cptchtqkpb1ec" path="res://square.svg" id="2_3kh0m"]
-[ext_resource type="Script" path="res://line.gd" id="2_n6hmp"]
-[ext_resource type="Script" path="res://MainMenu.gd" id="3_dw0ot"]
-[ext_resource type="Script" path="res://TopMenu.gd" id="4_4qhbr"]
-[ext_resource type="Script" path="res://menuButton.gd" id="5_e4urb"]
+[ext_resource type="Script" path="res://scripts/System.gd" id="1_sydhc"]
+[ext_resource type="Script" path="res://scripts/MainMenu.gd" id="2_ralj5"]
+[ext_resource type="Texture2D" uid="uid://cptchtqkpb1ec" path="res://graphics/square.svg" id="3_s8itg"]
+[ext_resource type="Texture2D" uid="uid://3fxa7kaj8x30" path="res://graphics/buttonBackground.svg" id="4_wxfas"]
+[ext_resource type="Script" path="res://scripts/menuButton.gd" id="5_t2n50"]
+[ext_resource type="Texture2D" uid="uid://c28iptu6bk0yf" path="res://graphics/barBackground.svg" id="6_y15n5"]
+[ext_resource type="Texture2D" uid="uid://cvxwj3qd8660l" path="res://graphics/buttonDecoration.svg" id="7_q72u6"]
+[ext_resource type="Script" path="res://scripts/TopMenu.gd" id="8_kujdy"]
+[ext_resource type="Script" path="res://scripts/line.gd" id="9_27ae3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7ikwi"]
 font_size = 34
 outline_size = 4
 shadow_size = 3
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6jmrr"]
+content_margin_top = 14.0
+
 [sub_resource type="Theme" id="Theme_yqvkt"]
 default_font_size = 15
 
-[sub_resource type="Theme" id="Theme_qykye"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ptka8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2in1l"]
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_ooyuf"]
+font_size = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_1gwfn"]
 font_size = 21
@@ -74,14 +84,28 @@ font_size = 35
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kvegt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g7sf1"]
+font_size = 38
+font_color = Color(0.501961, 0.780392, 0.207843, 1)
+
+[sub_resource type="Gradient" id="Gradient_3v83c"]
+offsets = PackedFloat32Array(0, 0.503067, 1)
+colors = PackedColorArray(0.584314, 0.901961, 0.243137, 1, 0.501961, 0.780392, 0.207843, 1, 0.584314, 0.901961, 0.243137, 1)
+
+[sub_resource type="Gradient" id="Gradient_15r2b"]
+offsets = PackedFloat32Array(0, 0.496689, 1)
+colors = PackedColorArray(0.584314, 0.901961, 0.243137, 1, 0.49675, 0.770308, 0.203561, 1, 0.584314, 0.901961, 0.243137, 1)
+
 [node name="MainScene" type="Node2D"]
-script = ExtResource("1_tc4iy")
+script = ExtResource("1_sydhc")
 
 [node name="MainMenu" type="ColorRect" parent="."]
 offset_right = 541.0
 offset_bottom = 963.0
 color = Color(0.901961, 0.945098, 0.988235, 1)
-script = ExtResource("3_dw0ot")
+script = ExtResource("2_ralj5")
 
 [node name="BackgroundDecoration" type="Node2D" parent="MainMenu"]
 z_index = 1
@@ -91,28 +115,28 @@ self_modulate = Color(0.731609, 0.850492, 0.967576, 1)
 z_index = -1
 position = Vector2(84, 204)
 rotation = 0.785398
-texture = ExtResource("2_3kh0m")
+texture = ExtResource("3_s8itg")
 
 [node name="Square2" type="Sprite2D" parent="MainMenu/BackgroundDecoration"]
 self_modulate = Color(0.731609, 0.850492, 0.967576, 1)
 z_index = -1
 position = Vector2(460, 509)
 rotation = 0.785398
-texture = ExtResource("2_3kh0m")
+texture = ExtResource("3_s8itg")
 
 [node name="Square3" type="Sprite2D" parent="MainMenu/BackgroundDecoration"]
 self_modulate = Color(0.731609, 0.850492, 0.967576, 1)
 z_index = -1
 position = Vector2(115, 752)
 rotation = 0.785398
-texture = ExtResource("2_3kh0m")
+texture = ExtResource("3_s8itg")
 
 [node name="Square4" type="Sprite2D" parent="MainMenu/BackgroundDecoration"]
 self_modulate = Color(0.731609, 0.850492, 0.967576, 1)
 z_index = -1
 position = Vector2(487, 1020)
 rotation = 0.785398
-texture = ExtResource("2_3kh0m")
+texture = ExtResource("3_s8itg")
 
 [node name="StartMenu" type="Node2D" parent="MainMenu"]
 
@@ -122,14 +146,14 @@ z_index = 2
 z_as_relative = false
 position = Vector2(272, 365)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_88g5n")
-script = ExtResource("5_e4urb")
+texture = ExtResource("4_wxfas")
+script = ExtResource("5_t2n50")
 
 [node name="Shadow" type="Sprite2D" parent="MainMenu/StartMenu/DevelopmentalButton"]
 self_modulate = Color(0.538639, 0.836365, 0.219294, 1)
 z_index = 1
 z_as_relative = false
-texture = ExtResource("1_88g5n")
+texture = ExtResource("4_wxfas")
 offset = Vector2(5, 5)
 
 [node name="Label" type="Label" parent="MainMenu/StartMenu/DevelopmentalButton"]
@@ -145,7 +169,7 @@ horizontal_alignment = 1
 self_modulate = Color(1, 1, 1, 0)
 position = Vector2(-145.333, -127.333)
 scale = Vector2(0.371956, 0.0676759)
-texture_normal = ExtResource("1_ohnl1")
+texture_normal = ExtResource("6_y15n5")
 
 [node name="RegressiveButton" type="Sprite2D" parent="MainMenu/StartMenu"]
 self_modulate = Color(0.984314, 0.243137, 0, 1)
@@ -153,13 +177,13 @@ z_index = 2
 z_as_relative = false
 position = Vector2(270, 537)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_88g5n")
+texture = ExtResource("4_wxfas")
 
 [node name="Shadow" type="Sprite2D" parent="MainMenu/StartMenu/RegressiveButton"]
 self_modulate = Color(0.743919, 0.174178, 0, 1)
 z_index = 1
 z_as_relative = false
-texture = ExtResource("1_88g5n")
+texture = ExtResource("4_wxfas")
 offset = Vector2(5, 5)
 
 [node name="Label" type="Label" parent="MainMenu/StartMenu/RegressiveButton"]
@@ -176,13 +200,13 @@ z_index = 2
 z_as_relative = false
 position = Vector2(272, 703)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_88g5n")
+texture = ExtResource("4_wxfas")
 
 [node name="Shadow" type="Sprite2D" parent="MainMenu/StartMenu/RewardButton"]
 self_modulate = Color(0, 0.909804, 0.909804, 1)
 z_index = 1
 z_as_relative = false
-texture = ExtResource("1_88g5n")
+texture = ExtResource("4_wxfas")
 offset = Vector2(5, 5)
 
 [node name="Label" type="Label" parent="MainMenu/StartMenu/RewardButton"]
@@ -200,13 +224,13 @@ z_index = 2
 z_as_relative = false
 position = Vector2(272, 869)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_88g5n")
+texture = ExtResource("4_wxfas")
 
 [node name="Shadow" type="Sprite2D" parent="MainMenu/StartMenu/StatsButton"]
 self_modulate = Color(0.661346, 0.694725, 0.703056, 1)
 z_index = 1
 z_as_relative = false
-texture = ExtResource("1_88g5n")
+texture = ExtResource("4_wxfas")
 offset = Vector2(5, 5)
 
 [node name="Label" type="Label" parent="MainMenu/StartMenu/StatsButton"]
@@ -222,11 +246,12 @@ horizontal_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MainMenu/DevelopmentalMenu"]
 z_index = 5
-offset_left = 4.0
-offset_top = 120.0
-offset_right = 541.0
-offset_bottom = 959.0
+offset_left = 21.0
+offset_top = 121.0
+offset_right = 522.0
+offset_bottom = 840.0
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6jmrr")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/DevelopmentalMenu/ScrollContainer" node_paths=PackedStringArray("shortcut_context")]
 custom_minimum_size = Vector2(500, 700)
@@ -235,31 +260,54 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 shortcut_context = NodePath("")
 theme = SubResource("Theme_yqvkt")
-theme_override_constants/separation = 29
+theme_override_constants/separation = 175
 
-[node name="Button" type="Button" parent="MainMenu/DevelopmentalMenu/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme = SubResource("Theme_qykye")
-
-[node name="Button2" type="Button" parent="MainMenu/DevelopmentalMenu/ScrollContainer/VBoxContainer"]
+[node name="ListItemDevelopmental" type="Control" parent="MainMenu/DevelopmentalMenu/ScrollContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MainMenu/DevelopmentalMenu/ScrollContainer/VBoxContainer"]
-layout_mode = 2
+[node name="ButtonBackgroundSmall(2)" type="Sprite2D" parent="MainMenu/DevelopmentalMenu/ScrollContainer/VBoxContainer/ListItemDevelopmental"]
+self_modulate = Color(0.682353, 0.980392, 0.407843, 1)
+position = Vector2(244, 60)
+scale = Vector2(1.11168, 1)
+texture = SubResource("CompressedTexture2D_ptka8")
 
-[node name="Button3" type="Button" parent="MainMenu/DevelopmentalMenu/ScrollContainer/VBoxContainer"]
-layout_mode = 2
+[node name="ButtonBackgroundSmall(5)" type="Sprite2D" parent="MainMenu/DevelopmentalMenu/ScrollContainer/VBoxContainer/ListItemDevelopmental/ButtonBackgroundSmall(2)"]
+self_modulate = Color(0.584021, 0.902416, 0.244768, 1)
+texture_filter = 1
+position = Vector2(2.69862, 3)
+texture = ExtResource("7_q72u6")
 
-[node name="BarBackground" type="Sprite2D" parent="MainMenu/DevelopmentalMenu/ScrollContainer/VBoxContainer/Button3"]
-position = Vector2(277, -11)
-texture = ExtResource("1_ohnl1")
+[node name="Label" type="Label" parent="MainMenu/DevelopmentalMenu/ScrollContainer/VBoxContainer/ListItemDevelopmental/ButtonBackgroundSmall(2)"]
+offset_left = -160.119
+offset_top = -28.0
+offset_right = 174.881
+offset_bottom = 25.0
+text = "Meditation 30 mins"
+label_settings = SubResource("LabelSettings_2in1l")
+
+[node name="Label2" type="Label" parent="MainMenu/DevelopmentalMenu/ScrollContainer/VBoxContainer/ListItemDevelopmental/ButtonBackgroundSmall(2)"]
+offset_left = -58.4703
+offset_top = 33.0
+offset_right = 41.5297
+offset_bottom = 64.0
+text = "Shards: 10"
+label_settings = SubResource("LabelSettings_ooyuf")
+
+[node name="Line2D" type="Line2D" parent="MainMenu/DevelopmentalMenu/ScrollContainer/VBoxContainer/ListItemDevelopmental/ButtonBackgroundSmall(2)"]
+z_index = 10
+position = Vector2(18.8904, 62)
+scale = Vector2(0.899543, 1)
+points = PackedVector2Array(82, -40, 111, -17, 161, -106)
+width = 15.0
+default_color = Color(0.526935, 0.817358, 0.213584, 1)
 
 [node name="TopMenu" type="ColorRect" parent="."]
 offset_left = -1.0
 offset_right = 541.0
 offset_bottom = 94.0
 color = Color(0, 0.517647, 0.815686, 1)
-script = ExtResource("4_4qhbr")
+script = ExtResource("8_kujdy")
 
 [node name="RewardPoints" type="Label" parent="TopMenu"]
 layout_mode = 0
@@ -284,7 +332,7 @@ label_settings = SubResource("LabelSettings_8yfeg")
 self_modulate = Color(0, 0.432535, 0.686277, 1)
 position = Vector2(265, 6.00001)
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("1_ohnl1")
+texture = ExtResource("6_y15n5")
 
 [node name="Line2D" type="Line2D" parent="TopMenu/Bar"]
 position = Vector2(0, -1.42857)
@@ -294,7 +342,7 @@ default_color = Color(0.38762, 0.726839, 1, 1)
 gradient = SubResource("Gradient_hhys4")
 begin_cap_mode = 2
 end_cap_mode = 2
-script = ExtResource("2_n6hmp")
+script = ExtResource("9_27ae3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TopMenu/Bar/Line2D"]
 autoplay = "idle"
@@ -314,5 +362,69 @@ vertical_alignment = 1
 
 [node name="EndMarker" type="Marker2D" parent="TopMenu/Bar"]
 position = Vector2(260, 40)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.537255)
+offset_top = 811.0
+offset_right = 540.0
+offset_bottom = 961.0
+color = Color(0.682353, 0.980392, 0.407843, 1)
+
+[node name="ButtonBackgroundSmall(6)" type="Sprite2D" parent="ColorRect"]
+visible = false
+self_modulate = Color(0.964706, 0.964706, 0.964706, 1)
+texture_filter = 1
+position = Vector2(274.75, 56.75)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("CompressedTexture2D_kvegt")
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 86.0
+offset_right = 297.0
+offset_bottom = 142.0
+text = "ADD"
+label_settings = SubResource("LabelSettings_g7sf1")
+
+[node name="Label2" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 46.0
+offset_right = 127.0
+offset_bottom = 102.0
+text = "Exit"
+label_settings = SubResource("LabelSettings_g7sf1")
+
+[node name="Label3" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 50.0
+offset_right = 497.0
+offset_bottom = 106.0
+text = "Modify"
+label_settings = SubResource("LabelSettings_g7sf1")
+
+[node name="Line2D" type="Line2D" parent="ColorRect"]
+position = Vector2(256.05, 56.65)
+scale = Vector2(0.45, 0.45)
+points = PackedVector2Array(-6, 59, -6, 0.181229, -6, -57)
+width = 20.0
+default_color = Color(0.584314, 0.901961, 0.243137, 1)
+gradient = SubResource("Gradient_3v83c")
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="ColorRect"]
+position = Vector2(255.55, 59.15)
+rotation = 1.5708
+scale = Vector2(0.45, 0.45)
+points = PackedVector2Array(-6, 59, -6, 4.9244, -6, -57)
+width = 20.0
+default_color = Color(0.458824, 0.929412, 0, 1)
+gradient = SubResource("Gradient_15r2b")
+begin_cap_mode = 2
+end_cap_mode = 2
 
 [connection signal="pressed" from="MainMenu/StartMenu/DevelopmentalButton/TouchScreenButton" to="MainMenu" method="DevelopmentalButtonPressed"]
