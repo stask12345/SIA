@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://314n5nllo05g"]
+[gd_scene load_steps=27 format=3 uid="uid://314n5nllo05g"]
 
 [ext_resource type="Script" path="res://scripts/System.gd" id="1_sydhc"]
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="2_ralj5"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://3fxa7kaj8x30" path="res://graphics/buttonBackground.svg" id="4_wxfas"]
 [ext_resource type="Script" path="res://scripts/menuButton.gd" id="5_t2n50"]
 [ext_resource type="Texture2D" uid="uid://c28iptu6bk0yf" path="res://graphics/barBackground.svg" id="6_y15n5"]
-[ext_resource type="Texture2D" uid="uid://cvxwj3qd8660l" path="res://graphics/buttonDecoration.svg" id="7_q72u6"]
+[ext_resource type="Script" path="res://scripts/DevelopmentalMenu.gd" id="7_hq5gp"]
+[ext_resource type="PackedScene" uid="uid://bq5otdbmv8pv3" path="res://resources/ListItemObject.tscn" id="7_kei8b"]
+[ext_resource type="Resource" uid="uid://0j4jcw5b6bxk" path="res://resources/LineItem.tres" id="8_4hell"]
 [ext_resource type="Script" path="res://scripts/TopMenu.gd" id="8_kujdy"]
 [ext_resource type="Script" path="res://scripts/line.gd" id="9_27ae3"]
 
@@ -21,13 +23,19 @@ content_margin_top = 14.0
 [sub_resource type="Theme" id="Theme_yqvkt"]
 default_font_size = 15
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ptka8"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kvegt"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_2in1l"]
-font_size = 34
+[sub_resource type="LabelSettings" id="LabelSettings_g7sf1"]
+font_size = 38
+font_color = Color(0.501961, 0.780392, 0.207843, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_ooyuf"]
-font_size = 20
+[sub_resource type="Gradient" id="Gradient_3v83c"]
+offsets = PackedFloat32Array(0, 0.503067, 1)
+colors = PackedColorArray(0.584314, 0.901961, 0.243137, 1, 0.501961, 0.780392, 0.207843, 1, 0.584314, 0.901961, 0.243137, 1)
+
+[sub_resource type="Gradient" id="Gradient_15r2b"]
+offsets = PackedFloat32Array(0, 0.496689, 1)
+colors = PackedColorArray(0.584314, 0.901961, 0.243137, 1, 0.49675, 0.770308, 0.203561, 1, 0.584314, 0.901961, 0.243137, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_1gwfn"]
 font_size = 21
@@ -83,20 +91,6 @@ font = SubResource("SystemFont_cjhsi")
 font_size = 35
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kvegt"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_g7sf1"]
-font_size = 38
-font_color = Color(0.501961, 0.780392, 0.207843, 1)
-
-[sub_resource type="Gradient" id="Gradient_3v83c"]
-offsets = PackedFloat32Array(0, 0.503067, 1)
-colors = PackedColorArray(0.584314, 0.901961, 0.243137, 1, 0.501961, 0.780392, 0.207843, 1, 0.584314, 0.901961, 0.243137, 1)
-
-[sub_resource type="Gradient" id="Gradient_15r2b"]
-offsets = PackedFloat32Array(0, 0.496689, 1)
-colors = PackedColorArray(0.584314, 0.901961, 0.243137, 1, 0.49675, 0.770308, 0.203561, 1, 0.584314, 0.901961, 0.243137, 1)
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_sydhc")
@@ -243,6 +237,9 @@ label_settings = SubResource("LabelSettings_7ikwi")
 horizontal_alignment = 1
 
 [node name="DevelopmentalMenu" type="Node2D" parent="MainMenu"]
+visible = false
+script = ExtResource("7_hq5gp")
+listOfItems = [ExtResource("8_4hell")]
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MainMenu/DevelopmentalMenu"]
 z_index = 5
@@ -262,45 +259,72 @@ shortcut_context = NodePath("")
 theme = SubResource("Theme_yqvkt")
 theme_override_constants/separation = 175
 
-[node name="ListItemDevelopmental" type="Control" parent="MainMenu/DevelopmentalMenu/ScrollContainer/VBoxContainer"]
-visible = false
+[node name="ListItemDevelopmental" parent="MainMenu/DevelopmentalMenu/ScrollContainer/VBoxContainer" instance=ExtResource("7_kei8b")]
 layout_mode = 2
 
-[node name="ButtonBackgroundSmall(2)" type="Sprite2D" parent="MainMenu/DevelopmentalMenu/ScrollContainer/VBoxContainer/ListItemDevelopmental"]
-self_modulate = Color(0.682353, 0.980392, 0.407843, 1)
-position = Vector2(244, 60)
-scale = Vector2(1.11168, 1)
-texture = SubResource("CompressedTexture2D_ptka8")
+[node name="ColorRect" type="ColorRect" parent="MainMenu/DevelopmentalMenu"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.537255)
+offset_top = 811.0
+offset_right = 540.0
+offset_bottom = 961.0
+color = Color(0.682353, 0.980392, 0.407843, 1)
 
-[node name="ButtonBackgroundSmall(5)" type="Sprite2D" parent="MainMenu/DevelopmentalMenu/ScrollContainer/VBoxContainer/ListItemDevelopmental/ButtonBackgroundSmall(2)"]
-self_modulate = Color(0.584021, 0.902416, 0.244768, 1)
+[node name="ButtonBackgroundSmall(6)" type="Sprite2D" parent="MainMenu/DevelopmentalMenu/ColorRect"]
+visible = false
+self_modulate = Color(0.964706, 0.964706, 0.964706, 1)
 texture_filter = 1
-position = Vector2(2.69862, 3)
-texture = ExtResource("7_q72u6")
+position = Vector2(274.75, 56.75)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("CompressedTexture2D_kvegt")
 
-[node name="Label" type="Label" parent="MainMenu/DevelopmentalMenu/ScrollContainer/VBoxContainer/ListItemDevelopmental/ButtonBackgroundSmall(2)"]
-offset_left = -160.119
-offset_top = -28.0
-offset_right = 174.881
-offset_bottom = 25.0
-text = "Meditation 30 mins"
-label_settings = SubResource("LabelSettings_2in1l")
+[node name="Label" type="Label" parent="MainMenu/DevelopmentalMenu/ColorRect"]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 86.0
+offset_right = 297.0
+offset_bottom = 142.0
+text = "ADD"
+label_settings = SubResource("LabelSettings_g7sf1")
 
-[node name="Label2" type="Label" parent="MainMenu/DevelopmentalMenu/ScrollContainer/VBoxContainer/ListItemDevelopmental/ButtonBackgroundSmall(2)"]
-offset_left = -58.4703
-offset_top = 33.0
-offset_right = 41.5297
-offset_bottom = 64.0
-text = "Shards: 10"
-label_settings = SubResource("LabelSettings_ooyuf")
+[node name="Label2" type="Label" parent="MainMenu/DevelopmentalMenu/ColorRect"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 46.0
+offset_right = 127.0
+offset_bottom = 102.0
+text = "Exit"
+label_settings = SubResource("LabelSettings_g7sf1")
 
-[node name="Line2D" type="Line2D" parent="MainMenu/DevelopmentalMenu/ScrollContainer/VBoxContainer/ListItemDevelopmental/ButtonBackgroundSmall(2)"]
-z_index = 10
-position = Vector2(18.8904, 62)
-scale = Vector2(0.899543, 1)
-points = PackedVector2Array(82, -40, 111, -17, 161, -106)
-width = 15.0
-default_color = Color(0.526935, 0.817358, 0.213584, 1)
+[node name="Label3" type="Label" parent="MainMenu/DevelopmentalMenu/ColorRect"]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 50.0
+offset_right = 497.0
+offset_bottom = 106.0
+text = "Modify"
+label_settings = SubResource("LabelSettings_g7sf1")
+
+[node name="Line2D" type="Line2D" parent="MainMenu/DevelopmentalMenu/ColorRect"]
+position = Vector2(256.05, 56.65)
+scale = Vector2(0.45, 0.45)
+points = PackedVector2Array(-6, 59, -6, 0.181229, -6, -57)
+width = 20.0
+default_color = Color(0.584314, 0.901961, 0.243137, 1)
+gradient = SubResource("Gradient_3v83c")
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="MainMenu/DevelopmentalMenu/ColorRect"]
+position = Vector2(255.55, 59.15)
+rotation = 1.5708
+scale = Vector2(0.45, 0.45)
+points = PackedVector2Array(-6, 59, -6, 4.9244, -6, -57)
+width = 20.0
+default_color = Color(0.458824, 0.929412, 0, 1)
+gradient = SubResource("Gradient_15r2b")
+begin_cap_mode = 2
+end_cap_mode = 2
 
 [node name="TopMenu" type="ColorRect" parent="."]
 offset_left = -1.0
@@ -362,69 +386,5 @@ vertical_alignment = 1
 
 [node name="EndMarker" type="Marker2D" parent="TopMenu/Bar"]
 position = Vector2(260, 40)
-
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-self_modulate = Color(1, 1, 1, 0.537255)
-offset_top = 811.0
-offset_right = 540.0
-offset_bottom = 961.0
-color = Color(0.682353, 0.980392, 0.407843, 1)
-
-[node name="ButtonBackgroundSmall(6)" type="Sprite2D" parent="ColorRect"]
-visible = false
-self_modulate = Color(0.964706, 0.964706, 0.964706, 1)
-texture_filter = 1
-position = Vector2(274.75, 56.75)
-scale = Vector2(0.5, 0.5)
-texture = SubResource("CompressedTexture2D_kvegt")
-
-[node name="Label" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 216.0
-offset_top = 86.0
-offset_right = 297.0
-offset_bottom = 142.0
-text = "ADD"
-label_settings = SubResource("LabelSettings_g7sf1")
-
-[node name="Label2" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 57.0
-offset_top = 46.0
-offset_right = 127.0
-offset_bottom = 102.0
-text = "Exit"
-label_settings = SubResource("LabelSettings_g7sf1")
-
-[node name="Label3" type="Label" parent="ColorRect"]
-layout_mode = 0
-offset_left = 370.0
-offset_top = 50.0
-offset_right = 497.0
-offset_bottom = 106.0
-text = "Modify"
-label_settings = SubResource("LabelSettings_g7sf1")
-
-[node name="Line2D" type="Line2D" parent="ColorRect"]
-position = Vector2(256.05, 56.65)
-scale = Vector2(0.45, 0.45)
-points = PackedVector2Array(-6, 59, -6, 0.181229, -6, -57)
-width = 20.0
-default_color = Color(0.584314, 0.901961, 0.243137, 1)
-gradient = SubResource("Gradient_3v83c")
-begin_cap_mode = 2
-end_cap_mode = 2
-
-[node name="Line2D2" type="Line2D" parent="ColorRect"]
-position = Vector2(255.55, 59.15)
-rotation = 1.5708
-scale = Vector2(0.45, 0.45)
-points = PackedVector2Array(-6, 59, -6, 4.9244, -6, -57)
-width = 20.0
-default_color = Color(0.458824, 0.929412, 0, 1)
-gradient = SubResource("Gradient_15r2b")
-begin_cap_mode = 2
-end_cap_mode = 2
 
 [connection signal="pressed" from="MainMenu/StartMenu/DevelopmentalButton/TouchScreenButton" to="MainMenu" method="DevelopmentalButtonPressed"]

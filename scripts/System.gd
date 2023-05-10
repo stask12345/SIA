@@ -46,7 +46,13 @@ func updateExpSystem(shardsToAdd):
 	$TopMenu.updateStats()
 
 func saveData():
-	ResourceSaver.save(stats,savePath)
+	var rs = Array()
+	rs.push_front(stats)
+	
+	for r in $MainMenu/DevelopmentalMenu.listOfItems:
+		rs.push_front(r)
+	
+	ResourceSaver.save(rs,savePath)
 
 func loadData():
 	if ResourceLoader.exists(savePath):

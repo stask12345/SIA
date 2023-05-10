@@ -1,9 +1,8 @@
 res://MainScene.tscn
-res://stats.gd
-res://System.gd
-res://Stats.tres
-res://TopMenu.gd
-res://listItem.gd
 res://scripts/System.gd
 res://resources/Stats.tres
+res://scripts/MainMenu.gd
+res://resources/ListItemObject.tscn
 res://resources/LineItem.tres
+res://scripts/ListItem.gd
+res://scripts/DevelopmentalMenu.gd
