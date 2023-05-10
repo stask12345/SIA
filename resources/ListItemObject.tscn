@@ -31,6 +31,7 @@ scale = Vector2(1.11168, 1)
 texture = ExtResource("1_r0y6i")
 
 [node name="Name" type="Label" parent="."]
+layout_mode = 0
 offset_left = 79.0
 offset_top = 31.0
 offset_right = 422.0
@@ -41,6 +42,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Reward" type="Label" parent="."]
+layout_mode = 0
 offset_left = 195.0
 offset_top = 96.0
 offset_right = 295.0
@@ -54,7 +56,6 @@ vertical_alignment = 1
 visible = false
 z_index = 10
 position = Vector2(265, 122)
-scale = Vector2(1, 1)
 points = PackedVector2Array(82, -40, 111, -17, 161, -106)
 width = 15.0
 default_color = Color(0.526935, 0.817358, 0.213584, 1)

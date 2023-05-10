@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://0j4jcw5b6bxk" path="res://resources/LineItem.tres" id="8_4hell"]
 [ext_resource type="Script" path="res://scripts/TopMenu.gd" id="8_kujdy"]
 [ext_resource type="Script" path="res://scripts/line.gd" id="9_27ae3"]
+[ext_resource type="Script" path="res://scripts/BottomMenu.gd" id="10_p7non"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7ikwi"]
 font_size = 34
@@ -22,8 +23,6 @@ content_margin_top = 14.0
 
 [sub_resource type="Theme" id="Theme_yqvkt"]
 default_font_size = 15
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kvegt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_g7sf1"]
 font_size = 38
@@ -95,37 +94,40 @@ outline_color = Color(0, 0, 0, 1)
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_sydhc")
 
-[node name="MainMenu" type="ColorRect" parent="."]
-offset_right = 541.0
-offset_bottom = 963.0
-color = Color(0.901961, 0.945098, 0.988235, 1)
+[node name="MainMenu" type="CanvasLayer" parent="."]
 script = ExtResource("2_ralj5")
 
-[node name="BackgroundDecoration" type="Node2D" parent="MainMenu"]
+[node name="Background" type="ColorRect" parent="MainMenu"]
+z_index = -10
+offset_right = 541.0
+offset_bottom = 1146.0
+color = Color(0.901961, 0.945098, 0.988235, 1)
+
+[node name="BackgroundDecoration" type="Node2D" parent="MainMenu/Background"]
 z_index = 1
 
-[node name="Square" type="Sprite2D" parent="MainMenu/BackgroundDecoration"]
+[node name="Square" type="Sprite2D" parent="MainMenu/Background/BackgroundDecoration"]
 self_modulate = Color(0.731609, 0.850492, 0.967576, 1)
 z_index = -1
 position = Vector2(84, 204)
 rotation = 0.785398
 texture = ExtResource("3_s8itg")
 
-[node name="Square2" type="Sprite2D" parent="MainMenu/BackgroundDecoration"]
+[node name="Square2" type="Sprite2D" parent="MainMenu/Background/BackgroundDecoration"]
 self_modulate = Color(0.731609, 0.850492, 0.967576, 1)
 z_index = -1
 position = Vector2(460, 509)
 rotation = 0.785398
 texture = ExtResource("3_s8itg")
 
-[node name="Square3" type="Sprite2D" parent="MainMenu/BackgroundDecoration"]
+[node name="Square3" type="Sprite2D" parent="MainMenu/Background/BackgroundDecoration"]
 self_modulate = Color(0.731609, 0.850492, 0.967576, 1)
 z_index = -1
 position = Vector2(115, 752)
 rotation = 0.785398
 texture = ExtResource("3_s8itg")
 
-[node name="Square4" type="Sprite2D" parent="MainMenu/BackgroundDecoration"]
+[node name="Square4" type="Sprite2D" parent="MainMenu/Background/BackgroundDecoration"]
 self_modulate = Color(0.731609, 0.850492, 0.967576, 1)
 z_index = -1
 position = Vector2(487, 1020)
@@ -133,6 +135,7 @@ rotation = 0.785398
 texture = ExtResource("3_s8itg")
 
 [node name="StartMenu" type="Node2D" parent="MainMenu"]
+visible = false
 
 [node name="DevelopmentalButton" type="Sprite2D" parent="MainMenu/StartMenu"]
 self_modulate = Color(0.682353, 0.980392, 0.407843, 1)
@@ -237,11 +240,11 @@ label_settings = SubResource("LabelSettings_7ikwi")
 horizontal_alignment = 1
 
 [node name="DevelopmentalMenu" type="Node2D" parent="MainMenu"]
-visible = false
 script = ExtResource("7_hq5gp")
-listOfItems = [ExtResource("8_4hell")]
+listOfItems = Array[Resource]([ExtResource("8_4hell")])
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MainMenu/DevelopmentalMenu"]
+visible = false
 z_index = 5
 offset_left = 21.0
 offset_top = 121.0
@@ -262,23 +265,25 @@ theme_override_constants/separation = 175
 [node name="ListItemDevelopmental" parent="MainMenu/DevelopmentalMenu/ScrollContainer/VBoxContainer" instance=ExtResource("7_kei8b")]
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="MainMenu/DevelopmentalMenu"]
-visible = false
-self_modulate = Color(1, 1, 1, 0.537255)
-offset_top = 811.0
-offset_right = 540.0
-offset_bottom = 961.0
+[node name="BottomMenu" type="CanvasLayer" parent="MainMenu/DevelopmentalMenu"]
+script = ExtResource("10_p7non")
+
+[node name="Background" type="ColorRect" parent="MainMenu/DevelopmentalMenu/BottomMenu"]
+self_modulate = Color(1, 1, 1, 0.670588)
+z_index = 10
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -270.0
+offset_top = -135.0
+offset_right = 270.0
+grow_horizontal = 2
+grow_vertical = 0
 color = Color(0.682353, 0.980392, 0.407843, 1)
 
-[node name="ButtonBackgroundSmall(6)" type="Sprite2D" parent="MainMenu/DevelopmentalMenu/ColorRect"]
-visible = false
-self_modulate = Color(0.964706, 0.964706, 0.964706, 1)
-texture_filter = 1
-position = Vector2(274.75, 56.75)
-scale = Vector2(0.5, 0.5)
-texture = SubResource("CompressedTexture2D_kvegt")
-
-[node name="Label" type="Label" parent="MainMenu/DevelopmentalMenu/ColorRect"]
+[node name="Add" type="Label" parent="MainMenu/DevelopmentalMenu/BottomMenu/Background"]
 layout_mode = 0
 offset_left = 216.0
 offset_top = 86.0
@@ -287,26 +292,8 @@ offset_bottom = 142.0
 text = "ADD"
 label_settings = SubResource("LabelSettings_g7sf1")
 
-[node name="Label2" type="Label" parent="MainMenu/DevelopmentalMenu/ColorRect"]
-layout_mode = 0
-offset_left = 57.0
-offset_top = 46.0
-offset_right = 127.0
-offset_bottom = 102.0
-text = "Exit"
-label_settings = SubResource("LabelSettings_g7sf1")
-
-[node name="Label3" type="Label" parent="MainMenu/DevelopmentalMenu/ColorRect"]
-layout_mode = 0
-offset_left = 370.0
-offset_top = 50.0
-offset_right = 497.0
-offset_bottom = 106.0
-text = "Modify"
-label_settings = SubResource("LabelSettings_g7sf1")
-
-[node name="Line2D" type="Line2D" parent="MainMenu/DevelopmentalMenu/ColorRect"]
-position = Vector2(256.05, 56.65)
+[node name="Line2D" type="Line2D" parent="MainMenu/DevelopmentalMenu/BottomMenu/Background/Add"]
+position = Vector2(40.05, -29.35)
 scale = Vector2(0.45, 0.45)
 points = PackedVector2Array(-6, 59, -6, 0.181229, -6, -57)
 width = 20.0
@@ -315,8 +302,8 @@ gradient = SubResource("Gradient_3v83c")
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="Line2D2" type="Line2D" parent="MainMenu/DevelopmentalMenu/ColorRect"]
-position = Vector2(255.55, 59.15)
+[node name="Line2D2" type="Line2D" parent="MainMenu/DevelopmentalMenu/BottomMenu/Background/Add"]
+position = Vector2(39.55, -26.85)
 rotation = 1.5708
 scale = Vector2(0.45, 0.45)
 points = PackedVector2Array(-6, 59, -6, 4.9244, -6, -57)
@@ -326,14 +313,71 @@ gradient = SubResource("Gradient_15r2b")
 begin_cap_mode = 2
 end_cap_mode = 2
 
-[node name="TopMenu" type="ColorRect" parent="."]
+[node name="TouchScreenButton" type="TouchScreenButton" parent="MainMenu/DevelopmentalMenu/BottomMenu/Background/Add"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-27, -87)
+scale = Vector2(0.576271, 0.604255)
+texture_normal = ExtResource("3_s8itg")
+
+[node name="Exit" type="Label" parent="MainMenu/DevelopmentalMenu/BottomMenu/Background"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 46.0
+offset_right = 127.0
+offset_bottom = 102.0
+text = "Exit"
+label_settings = SubResource("LabelSettings_g7sf1")
+
+[node name="Modify" type="Label" parent="MainMenu/DevelopmentalMenu/BottomMenu/Background"]
+layout_mode = 0
+offset_left = 370.0
+offset_top = 50.0
+offset_right = 497.0
+offset_bottom = 106.0
+text = "Modify"
+label_settings = SubResource("LabelSettings_g7sf1")
+
+[node name="AddMenu" type="Node2D" parent="MainMenu/DevelopmentalMenu/BottomMenu/Background"]
+visible = false
+z_index = 10
+
+[node name="Exit" type="Label" parent="MainMenu/DevelopmentalMenu/BottomMenu/Background/AddMenu"]
+offset_left = 28.0
+offset_top = 417.0
+offset_right = 194.0
+offset_bottom = 473.0
+text = "Abandon"
+label_settings = SubResource("LabelSettings_g7sf1")
+
+[node name="Add" type="Label" parent="MainMenu/DevelopmentalMenu/BottomMenu/Background/AddMenu"]
+offset_left = 340.0
+offset_top = 419.0
+offset_right = 506.0
+offset_bottom = 475.0
+text = "Add
+"
+label_settings = SubResource("LabelSettings_g7sf1")
+horizontal_alignment = 2
+
+[node name="ColorRect" type="ColorRect" parent="MainMenu/DevelopmentalMenu/BottomMenu/Background/AddMenu"]
+z_index = -14
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -923.0
+offset_right = 540.0
+grow_vertical = 0
+color = Color(0, 0, 0, 0.52549)
+
+[node name="TopMenu" type="ColorRect" parent="MainMenu"]
+z_index = 10
 offset_left = -1.0
 offset_right = 541.0
 offset_bottom = 94.0
 color = Color(0, 0.517647, 0.815686, 1)
 script = ExtResource("8_kujdy")
 
-[node name="RewardPoints" type="Label" parent="TopMenu"]
+[node name="RewardPoints" type="Label" parent="MainMenu/TopMenu"]
 layout_mode = 0
 offset_left = 341.0
 offset_top = 59.0
@@ -343,7 +387,7 @@ text = "Reward Points: 7"
 label_settings = SubResource("LabelSettings_1gwfn")
 vertical_alignment = 1
 
-[node name="Rank" type="Label" parent="TopMenu"]
+[node name="Rank" type="Label" parent="MainMenu/TopMenu"]
 layout_mode = 0
 offset_left = 25.0
 offset_top = 61.0
@@ -352,13 +396,13 @@ offset_bottom = 94.0
 text = "Rank: Sleeper"
 label_settings = SubResource("LabelSettings_8yfeg")
 
-[node name="Bar" type="Sprite2D" parent="TopMenu"]
+[node name="Bar" type="Sprite2D" parent="MainMenu/TopMenu"]
 self_modulate = Color(0, 0.432535, 0.686277, 1)
 position = Vector2(265, 6.00001)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_y15n5")
 
-[node name="Line2D" type="Line2D" parent="TopMenu/Bar"]
+[node name="Line2D" type="Line2D" parent="MainMenu/TopMenu/Bar"]
 position = Vector2(0, -1.42857)
 points = PackedVector2Array(-250, 41.4286, -208.571, 41.4286)
 width = 50.0
@@ -368,13 +412,13 @@ begin_cap_mode = 2
 end_cap_mode = 2
 script = ExtResource("9_27ae3")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="TopMenu/Bar/Line2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MainMenu/TopMenu/Bar/Line2D"]
 autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_ey7s3")
 }
 
-[node name="Points" type="Label" parent="TopMenu/Bar"]
+[node name="Points" type="Label" parent="MainMenu/TopMenu/Bar"]
 offset_left = -95.7143
 offset_top = 7.14286
 offset_right = 102.286
@@ -384,7 +428,8 @@ label_settings = SubResource("LabelSettings_0g8g5")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="EndMarker" type="Marker2D" parent="TopMenu/Bar"]
+[node name="EndMarker" type="Marker2D" parent="MainMenu/TopMenu/Bar"]
 position = Vector2(260, 40)
 
 [connection signal="pressed" from="MainMenu/StartMenu/DevelopmentalButton/TouchScreenButton" to="MainMenu" method="DevelopmentalButtonPressed"]
+[connection signal="pressed" from="MainMenu/DevelopmentalMenu/BottomMenu/Background/Add/TouchScreenButton" to="MainMenu/DevelopmentalMenu/BottomMenu" method="openAddMenu"]

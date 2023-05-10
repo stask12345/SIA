@@ -17,7 +17,7 @@ func _ready():
 	if d != stats.dayOfMonth:
 		updateExpSystem(-5)
 		stats.dayOfMonth = d
-	saveData()
+#	saveData()
 
 func updateExpSystem(shardsToAdd):
 	stats.expShards += shardsToAdd
@@ -43,7 +43,7 @@ func updateExpSystem(shardsToAdd):
 		stats.expShards += rankGoals[stats.rank]
 		stats.expShards -= (5+(5*stats.rank))
 	
-	$TopMenu.updateStats()
+	$MainMenu/TopMenu.updateStats()
 
 func saveData():
 	var rs = Array()
@@ -55,9 +55,9 @@ func saveData():
 	ResourceSaver.save(rs,savePath)
 
 func loadData():
-	if ResourceLoader.exists(savePath):
-		var r = ResourceLoader.load(savePath)
-		stats = r
-	else: #We don't have any save to load, so we create one
+#	if ResourceLoader.exists(savePath):
+#		var r = ResourceLoader.load(savePath)
+#		stats = r
+#	else: #We don't have any save to load, so we create one
 		var s = preload("res://resources/Stats.tres")
 		stats = s
