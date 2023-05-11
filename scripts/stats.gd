@@ -5,3 +5,4 @@
 @export var dayOfMonth = 999
 @export var collectedExpShards = 0
 @export var rewardsPointsAdded = 0 #For each 50 shards
+@export var listOfResources :Array[Resource] = []

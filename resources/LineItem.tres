@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_cvdq7")
-elementName = "d"
+elementName = "0"
 used = false
-type = "developmental"
-reward = 2
+type = "Structure"
+reward = 0

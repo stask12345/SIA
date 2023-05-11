@@ -1,13 +1,16 @@
+Button
+Panel
+Sprite2D
+TouchScreenButton
+HSlider
+TextEdit
 ColorRect
 Node2D
-TouchScreenButton
 Control
 CanvasLayer
 Line2D
 Label
-Button
 Container
-Sprite2D
 VBoxContainer
 ScrollContainer
 VScrollBar
@@ -22,4 +25,3 @@ Node
 Marker2D
 PointLight2D
 Polygon2D
-Panel

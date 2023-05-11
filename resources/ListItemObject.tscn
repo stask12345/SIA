@@ -14,6 +14,7 @@ font_size = 20
 [node name="ListItemDevelopmental" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+mouse_filter = 1
 script = ExtResource("1_sp6dm")
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -52,18 +53,23 @@ label_settings = SubResource("LabelSettings_ooyuf")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Line2D" type="Line2D" parent="."]
+[node name="Done" type="Line2D" parent="."]
 visible = false
+self_modulate = Color(2, 2, 2, 1)
 z_index = 10
 position = Vector2(265, 122)
 points = PackedVector2Array(82, -40, 111, -17, 161, -106)
 width = 15.0
-default_color = Color(0.526935, 0.817358, 0.213584, 1)
+default_color = Color(0.52549, 0.815686, 0.211765, 1)
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+[node name="TouchScreenButton" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-position = Vector2(25, -6)
+layout_mode = 0
+offset_left = 25.0
+offset_top = -6.0
+offset_right = 424.0
+offset_bottom = 125.0
 scale = Vector2(1.10152, 1.04545)
-texture_normal = ExtResource("1_c4bro")
+mouse_filter = 1
 
 [connection signal="pressed" from="TouchScreenButton" to="." method="clicked"]
