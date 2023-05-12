@@ -2,8 +2,7 @@ res://MainScene.tscn
 res://scripts/System.gd
 res://resources/Stats.tres
 res://resources/ListItemObject.tscn
+res://scripts/DevelopmentalMenu.gd
 res://scripts/BottomMenu.gd
 res://scripts/ListItem.gd
-res://scripts/DevelopmentalMenu.gd
-res://scripts/stats.gd
-res://resources/LineItem.tres
+res://scripts/MainMenu.gd

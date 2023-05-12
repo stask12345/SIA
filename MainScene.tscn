@@ -134,7 +134,6 @@ rotation = 0.785398
 texture = ExtResource("3_s8itg")
 
 [node name="StartMenu" type="Node2D" parent="MainMenu"]
-visible = false
 
 [node name="DevelopmentalButton" type="Sprite2D" parent="MainMenu/StartMenu"]
 self_modulate = Color(0.682353, 0.980392, 0.407843, 1)
@@ -239,10 +238,12 @@ label_settings = SubResource("LabelSettings_7ikwi")
 horizontal_alignment = 1
 
 [node name="DevelopmentalMenu" type="Node2D" parent="MainMenu"]
+visible = false
 script = ExtResource("7_hq5gp")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MainMenu/DevelopmentalMenu"]
 z_index = 5
+clip_contents = false
 offset_left = 21.0
 offset_top = 108.0
 offset_right = 524.0
@@ -254,13 +255,16 @@ horizontal_scroll_mode = 0
 vertical_scroll_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/DevelopmentalMenu/ScrollContainer" node_paths=PackedStringArray("shortcut_context")]
-custom_minimum_size = Vector2(470, 900)
+custom_minimum_size = Vector2(470, 700)
 layout_mode = 2
+size_flags_vertical = 2
 shortcut_context = NodePath("")
 theme = SubResource("Theme_yqvkt")
 theme_override_constants/separation = 175
 
 [node name="BottomMenu" type="CanvasLayer" parent="MainMenu/DevelopmentalMenu"]
+unique_name_in_owner = true
+visible = false
 script = ExtResource("10_p7non")
 
 [node name="Background" type="ColorRect" parent="MainMenu/DevelopmentalMenu/BottomMenu"]
@@ -323,6 +327,12 @@ offset_bottom = 102.0
 text = "Exit"
 label_settings = SubResource("LabelSettings_g7sf1")
 
+[node name="TouchScreenButton" type="TouchScreenButton" parent="MainMenu/DevelopmentalMenu/BottomMenu/Background/Exit"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-51, -21)
+scale = Vector2(0.36802, 0.818182)
+texture_normal = ExtResource("11_d5d8c")
+
 [node name="Modify" type="Label" parent="MainMenu/DevelopmentalMenu/BottomMenu/Background"]
 layout_mode = 0
 offset_left = 370.0
@@ -331,6 +341,12 @@ offset_right = 497.0
 offset_bottom = 106.0
 text = "Modify"
 label_settings = SubResource("LabelSettings_g7sf1")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="MainMenu/DevelopmentalMenu/BottomMenu/Background/Modify"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-1.00002, -20)
+scale = Vector2(0.383249, 0.734848)
+texture_normal = ExtResource("11_d5d8c")
 
 [node name="AddMenu" type="Node2D" parent="MainMenu/DevelopmentalMenu/BottomMenu/Background"]
 visible = false
@@ -401,8 +417,9 @@ texture_normal = ExtResource("11_d5d8c")
 
 [node name="DecorationLabel" type="Label" parent="MainMenu/DevelopmentalMenu/BottomMenu/Background/AddMenu"]
 offset_left = 19.0
+offset_top = -19.0
 offset_right = 519.0
-offset_bottom = 153.0
+offset_bottom = 134.0
 text = "Create new developmental item"
 label_settings = SubResource("LabelSettings_g7sf1")
 horizontal_alignment = 1
@@ -483,6 +500,8 @@ position = Vector2(260, 40)
 
 [connection signal="pressed" from="MainMenu/StartMenu/DevelopmentalButton/TouchScreenButton" to="MainMenu" method="DevelopmentalButtonPressed"]
 [connection signal="pressed" from="MainMenu/DevelopmentalMenu/BottomMenu/Background/Add/TouchScreenButton" to="MainMenu/DevelopmentalMenu/BottomMenu" method="openAddMenu"]
+[connection signal="pressed" from="MainMenu/DevelopmentalMenu/BottomMenu/Background/Exit/TouchScreenButton" to="MainMenu/DevelopmentalMenu" method="exitFromDevelopmental"]
+[connection signal="pressed" from="MainMenu/DevelopmentalMenu/BottomMenu/Background/Modify/TouchScreenButton" to="MainMenu/DevelopmentalMenu/BottomMenu" method="modifyClicked"]
 [connection signal="pressed" from="MainMenu/DevelopmentalMenu/BottomMenu/Background/AddMenu/Exit/TouchScreenButton" to="MainMenu/DevelopmentalMenu/BottomMenu" method="hideAddMenu"]
 [connection signal="value_changed" from="MainMenu/DevelopmentalMenu/BottomMenu/Background/AddMenu/ValueLabel/HSlider" to="MainMenu/DevelopmentalMenu/BottomMenu" method="updateReward"]
 [connection signal="pressed" from="MainMenu/DevelopmentalMenu/BottomMenu/Background/AddMenu/Add/TouchScreenButton" to="MainMenu/DevelopmentalMenu/BottomMenu" method="addNewDevelopmentalItem"]

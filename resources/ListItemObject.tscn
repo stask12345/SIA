@@ -72,4 +72,14 @@ offset_bottom = 125.0
 scale = Vector2(1.10152, 1.04545)
 mouse_filter = 1
 
+[node name="Modify" type="Line2D" parent="."]
+visible = false
+points = PackedVector2Array(85, 29, 47, 29, 47, 102, 117, 102, 117, 53)
+default_color = Color(0.432112, 0.766431, 0.245781, 1)
+
+[node name="Line2D" type="Line2D" parent="Modify"]
+points = PackedVector2Array(67, 66, 63, 84, 81, 80, 133, 23, 118, 12, 66, 68)
+width = 6.0
+default_color = Color(0.432112, 0.766431, 0.245781, 1)
+
 [connection signal="pressed" from="TouchScreenButton" to="." method="clicked"]

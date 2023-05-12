@@ -26,11 +26,20 @@ func exitStartMenu():
 func makeStartMenuInvisible():
 	$StartMenu.visible = false
 
+func makeStartMenuVisible():
+	$StartMenu.visible = true
+
 func goToDevelopmental():
 	var t = create_tween()
 	t.tween_property($DevelopmentalMenu,"scale",Vector2(1.1,1.1),0.1)
 	t.tween_callback(developmentalMenuAnimation)
 	$DevelopmentalMenu.makeVisible()
+
+func returnFromDevelopmental():
+	$DevelopmentalMenu.makeInvisible()
+	makeStartMenuVisible()
+	var t = create_tween()
+	t.tween_property($StartMenu,"position",Vector2(0,0),0.5)
 
 func developmentalMenuAnimation():
 	var t = create_tween()

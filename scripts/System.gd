@@ -17,7 +17,6 @@ func _ready():
 	if d != stats.dayOfMonth:
 		updateExpSystem(-5)
 		stats.dayOfMonth = d
-	saveData()
 
 func updateExpSystem(shardsToAdd):
 	stats.expShards += shardsToAdd
@@ -46,8 +45,10 @@ func updateExpSystem(shardsToAdd):
 	$MainMenu/TopMenu.updateStats()
 
 func saveData():
-#	DirAccess.remove_absolute("user://savegame.save")
+	DirAccess.remove_absolute("user://savegame.save")
 	
+	stats.listOfResources.clear()
+	print($MainMenu/DevelopmentalMenu.listOfItems.size())
 	stats.listOfResources.append_array($MainMenu/DevelopmentalMenu.listOfItems)
 	
 	ResourceSaver.save(stats,savePath, ResourceSaver.FLAG_BUNDLE_RESOURCES)
@@ -56,7 +57,7 @@ func loadData():
 	if ResourceLoader.exists(savePath):
 		var r = ResourceLoader.load(savePath)
 		stats = r
-		loadListItemResources()
+		call_deferred("loadListItemResources")
 	else: #We don't have any save to load, so we create one
 		var s = preload("res://resources/Stats.tres")
 		stats = s
@@ -64,4 +65,5 @@ func loadData():
 func loadListItemResources():
 	for r in stats.listOfResources:
 		if r.type == "Developmental":
-			print("tak")
+			print("bum bam")
+			$MainMenu/DevelopmentalMenu.createNewDevelopmentalItem(r)

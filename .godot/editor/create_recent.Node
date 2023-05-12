@@ -1,14 +1,15 @@
+TouchScreenButton
+ColorRect
+Line2D
+AnimationPlayer
 Button
 Panel
 Sprite2D
-TouchScreenButton
 HSlider
 TextEdit
-ColorRect
 Node2D
 Control
 CanvasLayer
-Line2D
 Label
 Container
 VBoxContainer
@@ -17,7 +18,6 @@ VScrollBar
 VSlider
 SpinBox
 TextureProgressBar
-AnimationPlayer
 AnimationTree
 CPUParticles2D
 GraphNode
