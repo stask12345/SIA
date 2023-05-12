@@ -65,5 +65,6 @@ func loadData():
 func loadListItemResources():
 	for r in stats.listOfResources:
 		if r.type == "Developmental":
-			print("bum bam")
 			$MainMenu/DevelopmentalMenu.createNewDevelopmentalItem(r)
+		if r.type == "Regressive":
+			$MainMenu/RegressiveMenu.createNewDevelopmentalItem(r)

@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 var itemToModifyVar
+@export var typeOfMenu = "Developmental"
 
 func openAddMenu():
 	$Background/Add.visible = false
@@ -14,6 +15,8 @@ func openAddMenu():
 
 func openAddMenuAnimation():
 	$Background/AddMenu/Add.text = "Add"
+	$Background/AddMenu/Delete.visible = false
+	$Background/AddMenu/DecorationLabel.text = "Create new item"
 	$Background/AddMenu.visible = true
 
 func hideAddMenu():
@@ -41,7 +44,7 @@ func addNewDevelopmentalItem():
 	var r = preload("res://resources/LineItem.tres").duplicate()
 	r.elementName = $Background/AddMenu/NameLabel/TextEdit.text
 	r.reward = $Background/AddMenu/ValueLabel/HSlider.value
-	r.type = "Developmental"
+	r.type = typeOfMenu
 	$"..".createNewDevelopmentalItem(r,true)
 	
 	hideAddMenu()
@@ -58,6 +61,7 @@ func openModifyMenu(itemToModify):
 	$Background/Exit.visible = false
 	$Background/Modify.visible = false
 	
+	$Background/AddMenu/DecorationLabel.text = "Modify item"
 	$Background/AddMenu/NameLabel/TextEdit.text = itemToModify.listItemResource.elementName
 	$Background/AddMenu/ValueLabel/HSlider.value = itemToModify.listItemResource.reward
 	
@@ -68,6 +72,7 @@ func openModifyMenu(itemToModify):
 
 func openModifyMenuAnimation():
 	$Background/AddMenu/Add.text = "Modify"
+	$Background/AddMenu/Delete.visible = true
 	$Background/AddMenu.visible = true
 
 func modifyItem():
@@ -78,3 +83,9 @@ func modifyItem():
 	
 	hideAddMenu()
 
+func deleteItem():
+	$"..".listOfItems.erase(itemToModifyVar.listItemResource)
+	itemToModifyVar.queue_free()
+	$"..".system.saveData()
+	
+	hideAddMenu()

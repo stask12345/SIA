@@ -18,6 +18,13 @@ func DevelopmentalButtonPressed():
 	await get_tree().create_timer(0.5).timeout
 	goToDevelopmental()
 
+func RegressiveMenuButtonPressed():
+	$StartMenu/RegressiveButton.clicked()
+	await get_tree().create_timer(0.2).timeout
+	exitStartMenu()
+	await get_tree().create_timer(0.5).timeout
+	goToRegressive()
+
 func exitStartMenu():
 	var t = create_tween()
 	t.tween_property($StartMenu,"position",Vector2(0,2000),0.5)
@@ -35,6 +42,12 @@ func goToDevelopmental():
 	t.tween_callback(developmentalMenuAnimation)
 	$DevelopmentalMenu.makeVisible()
 
+func goToRegressive():
+	var t = create_tween()
+	t.tween_property($RegressiveMenu,"scale",Vector2(1.1,1.1),0.1)
+	t.tween_callback(regressiveMenuAnimation)
+	$RegressiveMenu.makeVisible()
+
 func returnFromDevelopmental():
 	$DevelopmentalMenu.makeInvisible()
 	makeStartMenuVisible()
@@ -44,3 +57,7 @@ func returnFromDevelopmental():
 func developmentalMenuAnimation():
 	var t = create_tween()
 	t.tween_property($DevelopmentalMenu,"scale",Vector2(1,1),0.1)
+
+func regressiveMenuAnimation():
+	var t = create_tween()
+	t.tween_property($RegressiveMenu,"scale",Vector2(1,1),0.1)
