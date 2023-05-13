@@ -44,9 +44,9 @@ vertical_alignment = 1
 
 [node name="Reward" type="Label" parent="."]
 layout_mode = 0
-offset_left = 195.0
+offset_left = 118.0
 offset_top = 96.0
-offset_right = 295.0
+offset_right = 365.0
 offset_bottom = 127.0
 text = "Shards: 10"
 label_settings = SubResource("LabelSettings_ooyuf")

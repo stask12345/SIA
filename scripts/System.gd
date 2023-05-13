@@ -10,7 +10,6 @@ func _init():
 	loadData()
 
 func _ready():
-	print("ide dalej: " + str(stats.expShards))
 	var time = Time #Time regression system #Each day -10
 	var t = time.get_date_dict_from_system()
 	var d = t.day
@@ -43,11 +42,19 @@ func updateExpSystem(shardsToAdd):
 		stats.expShards -= (5+(5*stats.rank))
 	
 	$MainMenu/TopMenu.updateStats()
+	saveData()
+
+func updateRPSystem(RPToAdd):
+	stats.rewardPoints -= RPToAdd
+	
+	$MainMenu/TopMenu.updateStats()
+	saveData()
 
 func saveData():
 	stats.listOfResources.clear()
 	stats.listOfResources.append_array($MainMenu/DevelopmentalMenu.listOfItems)
 	stats.listOfResources.append_array($MainMenu/RegressiveMenu.listOfItems)
+	stats.listOfResources.append_array($MainMenu/RewardMenu.listOfItems)
 	
 	ResourceSaver.save(stats,savePath, ResourceSaver.FLAG_BUNDLE_RESOURCES)
 
@@ -66,3 +73,5 @@ func loadListItemResources():
 			$MainMenu/DevelopmentalMenu.createNewDevelopmentalItem(r)
 		if r.type == "Regressive":
 			$MainMenu/RegressiveMenu.createNewDevelopmentalItem(r)
+		if r.type == "Reward":
+			$MainMenu/RewardMenu.createNewDevelopmentalItem(r)

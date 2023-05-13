@@ -4,6 +4,7 @@ extends Control
 @onready var system = get_node("/root/MainScene")
 @onready var modifyMenu = get_node("/root/MainScene/MainMenu/DevelopmentalMenu/BottomMenu")
 @onready var modifyMenuRecessive = get_node("/root/MainScene/MainMenu/RegressiveMenu/BottomMenu")
+@onready var modifyMenuReward = get_node("/root/MainScene/MainMenu/RewardMenu/BottomMenu")
 var modifyMode = false
 
 func _ready():
@@ -12,11 +13,23 @@ func _ready():
 func setUp():
 	$Name.text = str(listItemResource.elementName)
 	$Reward.text = "Shards: " + str(listItemResource.reward)
+	if listItemResource.type == "Reward":
+		$Reward.text = "Cost of RP: " + str(listItemResource.reward)
+	
+	if listItemResource.used:
+		listItemResource.used = true
+		$Done.visible = true
+		modulate = Color.GRAY
+	else:
+		listItemResource.used = false
+		$Done.visible = false
+		modulate = Color.WHITE
 
 func clicked():
 	if modifyMode:
 		if listItemResource.type == "Developmental": modifyMenu.openModifyMenu(self)
 		if listItemResource.type == "Regressive": modifyMenuRecessive.openModifyMenu(self)
+		if listItemResource.type == "Reward": modifyMenuReward.openModifyMenu(self)
 		return
 	
 	var t = create_tween()
@@ -27,12 +40,22 @@ func clicked():
 		listItemResource.used = true
 		$Done.visible = true
 		modulate = Color.GRAY
-		system.updateExpSystem(listItemResource.reward)
+		if listItemResource.type != "Reward": system.updateExpSystem(listItemResource.reward)
+		else:
+			if (system.stats.rewardPoints >= listItemResource.reward):
+				system.updateRPSystem(listItemResource.reward)
+			else:
+				listItemResource.used = false
+				$Done.visible = false
+				modulate = Color.WHITE
 	else:
 		listItemResource.used = false
 		$Done.visible = false
 		modulate = Color.WHITE
-		system.updateExpSystem(-listItemResource.reward)
+		if listItemResource.type != "Reward":
+			system.updateExpSystem(-listItemResource.reward)
+		else:
+			system.updateRPSystem(-listItemResource.reward)
 	
 
 func unclickAnimation():

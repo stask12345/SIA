@@ -27,6 +27,9 @@ func createNewDevelopmentalItem(item,newOne = false):
 	if o.listItemResource.type == "Regressive":
 		o.get_node("Background").self_modulate = Color("fb3e00") # fc5567
 		o.get_node("ButtonDecoration").self_modulate = Color("be2c00") #e40031
+	if o.listItemResource.type == "Reward":
+		o.get_node("Background").self_modulate = Color("11ffff")
+		o.get_node("ButtonDecoration").self_modulate = Color("00e8e8") 
 	$ScrollContainer/VBoxContainer.add_child(o)
 	$ScrollContainer/VBoxContainer.move_child(o,$ScrollContainer/VBoxContainer.get_child_count()-2)
 	
@@ -50,3 +53,5 @@ func exitFromDevelopmental():
 		$"..".returnFromDevelopmental()
 	if "RegressiveMenu" in name:
 		$"..".returnFromRegressive()
+	if "RewardMenu" in name:
+		$"..".returnFromReward()

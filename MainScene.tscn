@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://314n5nllo05g"]
+[gd_scene load_steps=34 format=3 uid="uid://314n5nllo05g"]
 
 [ext_resource type="Script" path="res://scripts/System.gd" id="1_sydhc"]
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="2_ralj5"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://dm4kkbwjdjq8j" path="res://graphics/buttonBackgroundSmall.svg" id="11_d5d8c"]
 [ext_resource type="LabelSettings" uid="uid://c0gd8b3r2s2io" path="res://resources/RedSuperLabel.tres" id="12_2anui"]
 [ext_resource type="LabelSettings" uid="uid://dbr8hlb4vjusq" path="res://resources/RedLabel.tres" id="13_2i2ri"]
+[ext_resource type="LabelSettings" uid="uid://bybjb77qv5un4" path="res://resources/BlueSuperLabel.tres" id="14_qcci8"]
+[ext_resource type="LabelSettings" uid="uid://cbulftgi8e33e" path="res://resources/BlueLabel.tres" id="15_468vl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7ikwi"]
 font_size = 34
@@ -46,6 +48,10 @@ colors = PackedColorArray(0.584314, 0.121569, 0.160784, 1, 0.917647, 0.278431, 0
 [sub_resource type="LabelSettings" id="LabelSettings_wfap6"]
 font_size = 20
 font_color = Color(0.894118, 0, 0.192157, 1)
+
+[sub_resource type="Gradient" id="Gradient_q0axk"]
+offsets = PackedFloat32Array(0, 0.503067, 1)
+colors = PackedColorArray(0, 0.709804, 0.709804, 1, 9.81867e-06, 0.823038, 0.823038, 1, 0, 0.709804, 0.709804, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_1gwfn"]
 font_size = 21
@@ -215,6 +221,7 @@ z_as_relative = false
 position = Vector2(272, 703)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_wxfas")
+script = ExtResource("5_t2n50")
 
 [node name="Shadow" type="Sprite2D" parent="MainMenu/StartMenu/RewardButton"]
 self_modulate = Color(0, 0.909804, 0.909804, 1)
@@ -231,6 +238,12 @@ offset_bottom = -66.0
 text = "Rewards"
 label_settings = SubResource("LabelSettings_7ikwi")
 horizontal_alignment = 1
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="MainMenu/StartMenu/RewardButton"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-158, -131.333)
+scale = Vector2(0.796954, 0.676768)
+texture_normal = ExtResource("11_d5d8c")
 
 [node name="StatsButton" type="Sprite2D" parent="MainMenu/StartMenu"]
 self_modulate = Color(0.866667, 0.882353, 0.886275, 1)
@@ -607,6 +620,7 @@ text = "Name:"
 label_settings = ExtResource("13_2i2ri")
 
 [node name="LineEdit" type="LineEdit" parent="MainMenu/RegressiveMenu/BottomMenu/Background/AddMenu/NameLabel"]
+layout_mode = 0
 offset_left = 128.0
 offset_top = 3.0
 offset_right = 392.0
@@ -655,7 +669,7 @@ offset_top = -19.0
 offset_right = 519.0
 offset_bottom = 134.0
 text = "Create new developmental item"
-label_settings = ExtResource("13_2i2ri")
+label_settings = ExtResource("12_2anui")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -681,6 +695,220 @@ text = "Delete"
 label_settings = SubResource("LabelSettings_wfap6")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="MainMenu/RegressiveMenu/BottomMenu/Background/AddMenu/Delete"]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.13198, 0.166667)
+texture_normal = ExtResource("11_d5d8c")
+
+[node name="RewardMenu" type="Node2D" parent="MainMenu"]
+visible = false
+script = ExtResource("7_hq5gp")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainMenu/RewardMenu"]
+z_index = 5
+clip_contents = false
+offset_left = 21.0
+offset_top = 108.0
+offset_right = 524.0
+offset_bottom = 790.0
+mouse_filter = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_6jmrr")
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/RewardMenu/ScrollContainer" node_paths=PackedStringArray("shortcut_context")]
+custom_minimum_size = Vector2(470, 700)
+layout_mode = 2
+size_flags_vertical = 2
+shortcut_context = NodePath("")
+theme = SubResource("Theme_yqvkt")
+theme_override_constants/separation = 175
+
+[node name="BottomMenu" type="CanvasLayer" parent="MainMenu/RewardMenu"]
+visible = false
+script = ExtResource("10_p7non")
+typeOfMenu = "Reward"
+
+[node name="Background" type="ColorRect" parent="MainMenu/RewardMenu/BottomMenu"]
+self_modulate = Color(1, 1, 1, 0.803922)
+z_index = 10
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -270.0
+offset_top = -135.0
+offset_right = 270.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.0666667, 1, 1, 1)
+
+[node name="Add" type="Label" parent="MainMenu/RewardMenu/BottomMenu/Background"]
+layout_mode = 0
+offset_left = 201.0
+offset_top = 70.0
+offset_right = 297.0
+offset_bottom = 136.0
+text = "ADD"
+label_settings = ExtResource("14_qcci8")
+
+[node name="Line2D" type="Line2D" parent="MainMenu/RewardMenu/BottomMenu/Background/Add"]
+position = Vector2(45.05, -23.35)
+scale = Vector2(0.45, 0.45)
+points = PackedVector2Array(-6, 59, -6, 0.181229, -6, -57)
+width = 20.0
+default_color = Color(0.584314, 0.901961, 0.243137, 1)
+gradient = SubResource("Gradient_q0axk")
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="Line2D2" type="Line2D" parent="MainMenu/RewardMenu/BottomMenu/Background/Add"]
+position = Vector2(43, -20)
+rotation = 1.5708
+scale = Vector2(0.45, 0.45)
+points = PackedVector2Array(-6, 59, -6, 0.181229, -6, -57)
+width = 20.0
+default_color = Color(0.584314, 0.901961, 0.243137, 1)
+gradient = SubResource("Gradient_q0axk")
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="MainMenu/RewardMenu/BottomMenu/Background/Add"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-22, -81)
+scale = Vector2(0.576271, 0.604255)
+texture_normal = ExtResource("3_s8itg")
+
+[node name="Exit" type="Label" parent="MainMenu/RewardMenu/BottomMenu/Background"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 39.0
+offset_right = 120.0
+offset_bottom = 105.0
+text = "Exit"
+label_settings = ExtResource("14_qcci8")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="MainMenu/RewardMenu/BottomMenu/Background/Exit"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-51, -21)
+scale = Vector2(0.36802, 0.818182)
+texture_normal = ExtResource("11_d5d8c")
+
+[node name="Modify" type="Label" parent="MainMenu/RewardMenu/BottomMenu/Background"]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 34.0
+offset_right = 512.0
+offset_bottom = 100.0
+text = "Modify"
+label_settings = ExtResource("14_qcci8")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="MainMenu/RewardMenu/BottomMenu/Background/Modify"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-1.00002, -20)
+scale = Vector2(0.383249, 0.734848)
+texture_normal = ExtResource("11_d5d8c")
+
+[node name="AddMenu" type="Node2D" parent="MainMenu/RewardMenu/BottomMenu/Background"]
+visible = false
+z_index = 10
+
+[node name="Exit" type="Label" parent="MainMenu/RewardMenu/BottomMenu/Background/AddMenu"]
+offset_left = 29.0
+offset_top = 386.0
+offset_right = 195.0
+offset_bottom = 442.0
+text = "Abandon"
+label_settings = ExtResource("14_qcci8")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="MainMenu/RewardMenu/BottomMenu/Background/AddMenu/Exit"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-6, 0)
+scale = Vector2(0.461929, 0.469697)
+texture_normal = ExtResource("11_d5d8c")
+
+[node name="NameLabel" type="Label" parent="MainMenu/RewardMenu/BottomMenu/Background/AddMenu"]
+offset_left = 8.0
+offset_top = 144.0
+offset_right = 230.0
+offset_bottom = 200.0
+text = "Name:"
+label_settings = ExtResource("15_468vl")
+
+[node name="LineEdit" type="LineEdit" parent="MainMenu/RewardMenu/BottomMenu/Background/AddMenu/NameLabel"]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 3.0
+offset_right = 392.0
+offset_bottom = 42.0
+scale = Vector2(1.4, 1.4)
+max_length = 22
+
+[node name="ValueLabel" type="Label" parent="MainMenu/RewardMenu/BottomMenu/Background/AddMenu"]
+offset_left = 10.0
+offset_top = 256.0
+offset_right = 232.0
+offset_bottom = 312.0
+text = "RP cost : 0"
+label_settings = ExtResource("15_468vl")
+
+[node name="HSlider" type="HSlider" parent="MainMenu/RewardMenu/BottomMenu/Background/AddMenu/ValueLabel"]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 26.0
+offset_right = 496.0
+offset_bottom = 42.0
+max_value = 10.0
+
+[node name="Add" type="Label" parent="MainMenu/RewardMenu/BottomMenu/Background/AddMenu"]
+offset_left = 341.0
+offset_top = 386.0
+offset_right = 507.0
+offset_bottom = 442.0
+text = "Add
+"
+label_settings = ExtResource("14_qcci8")
+horizontal_alignment = 2
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="MainMenu/RewardMenu/BottomMenu/Background/AddMenu/Add"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(4, -8)
+scale = Vector2(0.477157, 0.545455)
+texture_normal = ExtResource("11_d5d8c")
+
+[node name="DecorationLabel" type="Label" parent="MainMenu/RewardMenu/BottomMenu/Background/AddMenu"]
+offset_left = 19.0
+offset_top = -19.0
+offset_right = 519.0
+offset_bottom = 134.0
+text = "Create new reward item"
+label_settings = ExtResource("14_qcci8")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="MainMenu/RewardMenu/BottomMenu/Background/AddMenu"]
+z_index = -14
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -923.0
+offset_right = 540.0
+grow_vertical = 0
+color = Color(0, 0, 0, 0.52549)
+
+[node name="Delete" type="Label" parent="MainMenu/RewardMenu/BottomMenu/Background/AddMenu"]
+visible = false
+self_modulate = Color(0.501961, 0.780392, 0.207843, 1)
+offset_left = 472.0
+offset_top = 1.0
+offset_right = 535.0
+offset_bottom = 32.0
+text = "Delete"
+label_settings = SubResource("LabelSettings_wfap6")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="MainMenu/RewardMenu/BottomMenu/Background/AddMenu/Delete"]
 self_modulate = Color(1, 1, 1, 0)
 scale = Vector2(0.13198, 0.166667)
 texture_normal = ExtResource("11_d5d8c")
@@ -749,6 +977,7 @@ position = Vector2(260, 40)
 
 [connection signal="pressed" from="MainMenu/StartMenu/DevelopmentalButton/TouchScreenButton" to="MainMenu" method="DevelopmentalButtonPressed"]
 [connection signal="pressed" from="MainMenu/StartMenu/RegressiveButton/TouchScreenButton" to="MainMenu" method="RegressiveMenuButtonPressed"]
+[connection signal="pressed" from="MainMenu/StartMenu/RewardButton/TouchScreenButton" to="MainMenu" method="RewardButtonPressed"]
 [connection signal="pressed" from="MainMenu/DevelopmentalMenu/BottomMenu/Background/Add/TouchScreenButton" to="MainMenu/DevelopmentalMenu/BottomMenu" method="openAddMenu"]
 [connection signal="pressed" from="MainMenu/DevelopmentalMenu/BottomMenu/Background/Exit/TouchScreenButton" to="MainMenu/DevelopmentalMenu" method="exitFromDevelopmental"]
 [connection signal="pressed" from="MainMenu/DevelopmentalMenu/BottomMenu/Background/Modify/TouchScreenButton" to="MainMenu/DevelopmentalMenu/BottomMenu" method="modifyClicked"]
@@ -763,3 +992,10 @@ position = Vector2(260, 40)
 [connection signal="value_changed" from="MainMenu/RegressiveMenu/BottomMenu/Background/AddMenu/ValueLabel/HSlider" to="MainMenu/RegressiveMenu/BottomMenu" method="updateReward"]
 [connection signal="pressed" from="MainMenu/RegressiveMenu/BottomMenu/Background/AddMenu/Add/TouchScreenButton" to="MainMenu/RegressiveMenu/BottomMenu" method="addNewDevelopmentalItem"]
 [connection signal="pressed" from="MainMenu/RegressiveMenu/BottomMenu/Background/AddMenu/Delete/TouchScreenButton" to="MainMenu/RegressiveMenu/BottomMenu" method="deleteItem"]
+[connection signal="pressed" from="MainMenu/RewardMenu/BottomMenu/Background/Add/TouchScreenButton" to="MainMenu/RewardMenu/BottomMenu" method="openAddMenu"]
+[connection signal="pressed" from="MainMenu/RewardMenu/BottomMenu/Background/Exit/TouchScreenButton" to="MainMenu/RewardMenu" method="exitFromDevelopmental"]
+[connection signal="pressed" from="MainMenu/RewardMenu/BottomMenu/Background/Modify/TouchScreenButton" to="MainMenu/RewardMenu/BottomMenu" method="modifyClicked"]
+[connection signal="pressed" from="MainMenu/RewardMenu/BottomMenu/Background/AddMenu/Exit/TouchScreenButton" to="MainMenu/RewardMenu/BottomMenu" method="hideAddMenu"]
+[connection signal="value_changed" from="MainMenu/RewardMenu/BottomMenu/Background/AddMenu/ValueLabel/HSlider" to="MainMenu/RewardMenu/BottomMenu" method="updateReward"]
+[connection signal="pressed" from="MainMenu/RewardMenu/BottomMenu/Background/AddMenu/Add/TouchScreenButton" to="MainMenu/RewardMenu/BottomMenu" method="addNewDevelopmentalItem"]
+[connection signal="pressed" from="MainMenu/RewardMenu/BottomMenu/Background/AddMenu/Delete/TouchScreenButton" to="MainMenu/RewardMenu/BottomMenu" method="deleteItem"]

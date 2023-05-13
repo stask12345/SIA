@@ -38,6 +38,7 @@ func showBottomMenuButtons():
 
 func updateReward(value):
 	$Background/AddMenu/ValueLabel.text = "Shards: " + str(value)
+	if typeOfMenu == "Reward": $Background/AddMenu/ValueLabel.text = "RP cost: " + str(value)
 
 func addNewDevelopmentalItem():
 	if $"..".modifyMode:
