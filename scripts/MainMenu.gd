@@ -54,6 +54,12 @@ func returnFromDevelopmental():
 	var t = create_tween()
 	t.tween_property($StartMenu,"position",Vector2(0,0),0.5)
 
+func returnFromRegressive():
+	$RegressiveMenu.makeInvisible()
+	makeStartMenuVisible()
+	var t = create_tween()
+	t.tween_property($StartMenu,"position",Vector2(0,0),0.5)
+
 func developmentalMenuAnimation():
 	var t = create_tween()
 	t.tween_property($DevelopmentalMenu,"scale",Vector2(1,1),0.1)

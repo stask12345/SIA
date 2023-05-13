@@ -3,6 +3,7 @@ extends Control
 @export var listItemResource : Resource
 @onready var system = get_node("/root/MainScene")
 @onready var modifyMenu = get_node("/root/MainScene/MainMenu/DevelopmentalMenu/BottomMenu")
+@onready var modifyMenuRecessive = get_node("/root/MainScene/MainMenu/RegressiveMenu/BottomMenu")
 var modifyMode = false
 
 func _ready():
@@ -14,7 +15,8 @@ func setUp():
 
 func clicked():
 	if modifyMode:
-		modifyMenu.openModifyMenu(self)
+		if listItemResource.type == "Developmental": modifyMenu.openModifyMenu(self)
+		if listItemResource.type == "Regressive": modifyMenuRecessive.openModifyMenu(self)
 		return
 	
 	var t = create_tween()

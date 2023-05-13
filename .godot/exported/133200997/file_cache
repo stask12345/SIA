@@ -1,4 +1,6 @@
-res://resources/LineItem.tres::1f53f8c9c4bdeeff7b95b4c612534a4e::1683735293::res://.godot/exported/133200997/export-cd920000be760999db9ebddf4ca858e3-LineItem.res
-res://resources/ListItemObject.tscn::06a08ca169274040989efd402e9d2e92::1683743388::res://.godot/exported/133200997/export-627b9ef74e7979ba8d8f28ba09c8407c-ListItemObject.scn
-res://resources/Stats.tres::b7b8e6bf395fb558e08645dd375fdb2e::1683737156::res://.godot/exported/133200997/export-a4c68db82e8b9025a5f3b453ba134a64-Stats.res
-res://MainScene.tscn::8441ab6cc998ec20b428c70303f7b4b2::1683743388::res://.godot/exported/133200997/export-a00ca0e08a1ac5e46d330a7c1b8d7acb-MainScene.scn
+res://resources/LineItem.tres::6921bdcf52f198d263c8f420d5b646e9::1683907062::res://.godot/exported/133200997/export-cd920000be760999db9ebddf4ca858e3-LineItem.res
+res://resources/ListItemObject.tscn::47cb6a8a18aa321e2ffd0d36bf263494::1683923720::res://.godot/exported/133200997/export-627b9ef74e7979ba8d8f28ba09c8407c-ListItemObject.scn
+res://resources/Stats.tres::f8d432195dc68c6020733867313ae8ed::1683917686::res://.godot/exported/133200997/export-a4c68db82e8b9025a5f3b453ba134a64-Stats.res
+res://MainScene.tscn::18fb8cd9355437b8ffa478135a5dcb15::1683923720::res://.godot/exported/133200997/export-a00ca0e08a1ac5e46d330a7c1b8d7acb-MainScene.scn
+res://resources/GreenLabel.tres::1a2cc6c8e81916aa91332156e0641d1f::1683917686::res://.godot/exported/133200997/export-0509e7029e0f39829abc8da8a054393c-GreenLabel.res
+res://resources/GreenSuperLabel.tres::843310aa2c37195c5856ef83a118f791::1683917686::res://.godot/exported/133200997/export-56589f9c173495dbac7aa4b5d97f3f36-GreenSuperLabel.res

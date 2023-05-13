@@ -8,8 +8,7 @@ func _ready():
 	call_deferred("makeEmptyElement")
 
 func makeEmptyElement():
-	var e = ColorRect.new()
-	$ScrollContainer/VBoxContainer.add_child(e)
+	$ScrollContainer/VBoxContainer.add_spacer(false)
 
 func makeInvisible():
 	$BottomMenu.visible = false
@@ -26,9 +25,11 @@ func createNewDevelopmentalItem(item,newOne = false):
 		o.get_node("Background").self_modulate = Color("aefa68")
 		o.get_node("ButtonDecoration").self_modulate = Color("95e63e")
 	if o.listItemResource.type == "Regressive":
-		o.get_node("Background").self_modulate = Color("fc5567")
-		o.get_node("ButtonDecoration").self_modulate = Color("e40031")
+		o.get_node("Background").self_modulate = Color("fb3e00") # fc5567
+		o.get_node("ButtonDecoration").self_modulate = Color("be2c00") #e40031
 	$ScrollContainer/VBoxContainer.add_child(o)
+	$ScrollContainer/VBoxContainer.move_child(o,$ScrollContainer/VBoxContainer.get_child_count()-2)
+	
 	listOfItems.append(item)
 	if newOne: system.saveData()
 
@@ -47,3 +48,5 @@ func turnOffModifyMode():
 func exitFromDevelopmental():
 	if "DevelopmentalMenu" in name:
 		$"..".returnFromDevelopmental()
+	if "RegressiveMenu" in name:
+		$"..".returnFromRegressive()

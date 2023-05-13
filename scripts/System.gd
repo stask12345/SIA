@@ -45,11 +45,9 @@ func updateExpSystem(shardsToAdd):
 	$MainMenu/TopMenu.updateStats()
 
 func saveData():
-	DirAccess.remove_absolute("user://savegame.save")
-	
 	stats.listOfResources.clear()
-	print($MainMenu/DevelopmentalMenu.listOfItems.size())
 	stats.listOfResources.append_array($MainMenu/DevelopmentalMenu.listOfItems)
+	stats.listOfResources.append_array($MainMenu/RegressiveMenu.listOfItems)
 	
 	ResourceSaver.save(stats,savePath, ResourceSaver.FLAG_BUNDLE_RESOURCES)
 

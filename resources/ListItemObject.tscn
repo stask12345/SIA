@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dm4kkbwjdjq8j" path="res://graphics/buttonBackgroundSmall.svg" id="1_c4bro"]
 [ext_resource type="Texture2D" uid="uid://cvxwj3qd8660l" path="res://graphics/buttonDecoration.svg" id="1_r0y6i"]
-[ext_resource type="Script" path="res://scripts/ListItem.gd" id="1_sp6dm"]
+[ext_resource type="Script" path="res://scripts/listItem.gd" id="1_w0jyt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2in1l"]
 font_size = 37
@@ -15,7 +15,7 @@ font_size = 20
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 1
-script = ExtResource("1_sp6dm")
+script = ExtResource("1_w0jyt")
 
 [node name="Background" type="Sprite2D" parent="."]
 self_modulate = Color(0.988235, 0.333333, 0.403922, 1)
@@ -33,10 +33,10 @@ texture = ExtResource("1_r0y6i")
 
 [node name="Name" type="Label" parent="."]
 layout_mode = 0
-offset_left = 79.0
-offset_top = 31.0
-offset_right = 422.0
-offset_bottom = 85.0
+offset_left = 35.0
+offset_top = 34.0
+offset_right = 447.0
+offset_bottom = 88.0
 text = "Meditation 30 mins"
 label_settings = SubResource("LabelSettings_2in1l")
 horizontal_alignment = 1

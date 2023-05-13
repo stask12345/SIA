@@ -1,3 +1,5 @@
+LineEdit
+Sprite2D
 TouchScreenButton
 Label
 ColorRect
@@ -5,7 +7,6 @@ Line2D
 AnimationPlayer
 Button
 Panel
-Sprite2D
 HSlider
 TextEdit
 Node2D
