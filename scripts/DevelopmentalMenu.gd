@@ -5,7 +5,7 @@ extends Node2D
 var modifyMode = false
 
 func _ready():
-	call_deferred("makeEmptyElement")
+	makeEmptyElement()
 
 func makeEmptyElement():
 	$ScrollContainer/VBoxContainer.add_spacer(false)
@@ -33,7 +33,7 @@ func createNewDevelopmentalItem(item,newOne = false):
 	$ScrollContainer/VBoxContainer.add_child(o)
 	$ScrollContainer/VBoxContainer.move_child(o,$ScrollContainer/VBoxContainer.get_child_count()-2)
 	
-	listOfItems.append(item)
+	listOfItems.push_back(item)
 	if newOne: system.saveData()
 
 func turnOnModifyMode():

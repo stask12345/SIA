@@ -17,6 +17,7 @@ func openAddMenu():
 	t.tween_callback(openAddMenuAnimation)
 
 func openAddMenuAnimation():
+	$"..".turnOffModifyMode()
 	$Background/AddMenu/Add.text = "Add"
 	$Background/AddMenu/Delete.visible = false
 	$Background/AddMenu/DecorationLabel.text = "Create new item"
@@ -79,6 +80,7 @@ func openModifyMenu(itemToModify):
 func openModifyMenuAnimation():
 	$Background/AddMenu/Add.text = "Modify"
 	$Background/AddMenu/Delete.visible = true
+	$Background/AddMenu/Delete/Used.text = "Used: " + str(itemToModifyVar.listItemResource.numberOfUsed)
 	$Background/AddMenu.visible = true
 
 func modifyItem():
@@ -87,6 +89,7 @@ func modifyItem():
 	itemToModifyVar.setUp()
 	$"..".system.saveData()
 	
+	$"..".turnOffModifyMode()
 	hideAddMenu()
 
 func deleteItem():
@@ -94,4 +97,5 @@ func deleteItem():
 	itemToModifyVar.queue_free()
 	$"..".system.saveData()
 	
+	$"..".turnOffModifyMode()
 	hideAddMenu()

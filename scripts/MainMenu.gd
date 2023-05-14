@@ -32,6 +32,13 @@ func RewardButtonPressed():
 	await get_tree().create_timer(0.5).timeout
 	goToReward()
 
+func StatisticButtonPressed():
+	$StartMenu/StatsButton.clicked()
+	await get_tree().create_timer(0.2).timeout
+	exitStartMenu()
+	await get_tree().create_timer(0.5).timeout
+	goToStats()
+
 func exitStartMenu():
 	var t = create_tween()
 	t.tween_property($StartMenu,"position",Vector2(0,2000),0.5)
@@ -61,6 +68,12 @@ func goToReward():
 	t.tween_callback(rewardMenuAnimation)
 	$RewardMenu.makeVisible()
 
+func goToStats():
+	var t = create_tween()
+	t.tween_property($RegressiveMenu,"scale",Vector2(1.1,1.1),0.1)
+	t.tween_callback(statsMenuAnimation)
+	$StatisticsMenu.makeVisible()
+
 func returnFromDevelopmental():
 	$DevelopmentalMenu.makeInvisible()
 	makeStartMenuVisible()
@@ -79,6 +92,13 @@ func returnFromReward():
 	var t = create_tween()
 	t.tween_property($StartMenu,"position",Vector2(0,0),0.5)
 
+func returnFromStats():
+	print("2d")
+	$StatisticsMenu.makeInvisible()
+	makeStartMenuVisible()
+	var t = create_tween()
+	t.tween_property($StartMenu,"position",Vector2(0,0),0.5)
+
 func developmentalMenuAnimation():
 	var t = create_tween()
 	t.tween_property($DevelopmentalMenu,"scale",Vector2(1,1),0.1)
@@ -90,3 +110,7 @@ func regressiveMenuAnimation():
 func rewardMenuAnimation():
 	var t = create_tween()
 	t.tween_property($RewardMenu,"scale",Vector2(1,1),0.1)
+
+func statsMenuAnimation():
+	var t = create_tween()
+	t.tween_property($StatisticsMenu,"scale",Vector2(1,1),0.1)

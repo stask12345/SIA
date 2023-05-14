@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://314n5nllo05g"]
+[gd_scene load_steps=41 format=3 uid="uid://314n5nllo05g"]
 
 [ext_resource type="Script" path="res://scripts/System.gd" id="1_sydhc"]
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="2_ralj5"]
@@ -17,6 +17,11 @@
 [ext_resource type="LabelSettings" uid="uid://dbr8hlb4vjusq" path="res://resources/RedLabel.tres" id="13_2i2ri"]
 [ext_resource type="LabelSettings" uid="uid://bybjb77qv5un4" path="res://resources/BlueSuperLabel.tres" id="14_qcci8"]
 [ext_resource type="LabelSettings" uid="uid://cbulftgi8e33e" path="res://resources/BlueLabel.tres" id="15_468vl"]
+[ext_resource type="Script" path="res://scripts/StatisticsMenu.gd" id="16_cs6dp"]
+[ext_resource type="LabelSettings" uid="uid://ck7ly6tq5x8vn" path="res://resources/GreyLabel.tres" id="17_audaa"]
+[ext_resource type="LabelSettings" uid="uid://5n4l1rhh4cj" path="res://resources/BoldGreyLabel.tres" id="17_cirom"]
+[ext_resource type="Script" path="res://examples/plot_sint.gd" id="19_ghkhv"]
+[ext_resource type="Script" path="res://addons/graph_2d/graph_2d.gd" id="20_5fj17"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7ikwi"]
 font_size = 34
@@ -41,6 +46,9 @@ outline_color = Color(0.501961, 0.780392, 0.207843, 1)
 shadow_size = 15
 shadow_color = Color(0.315941, 0.495233, 0.132335, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_yogh1"]
+font_color = Color(0.501961, 0.780392, 0.207843, 1)
+
 [sub_resource type="Gradient" id="Gradient_3v83c"]
 offsets = PackedFloat32Array(0, 0.503067, 1)
 colors = PackedColorArray(0.584314, 0.121569, 0.160784, 1, 0.917647, 0.278431, 0.313726, 1, 0.584314, 0.121569, 0.160784, 1)
@@ -52,6 +60,14 @@ font_color = Color(0.894118, 0, 0.192157, 1)
 [sub_resource type="Gradient" id="Gradient_q0axk"]
 offsets = PackedFloat32Array(0, 0.503067, 1)
 colors = PackedColorArray(0, 0.709804, 0.709804, 1, 9.81867e-06, 0.823038, 0.823038, 1, 0, 0.709804, 0.709804, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_plyu3"]
+font_size = 60
+font_color = Color(0.866667, 0.882353, 0.886275, 1)
+outline_size = 2
+outline_color = Color(0.866667, 0.882353, 0.886275, 1)
+shadow_size = 15
+shadow_color = Color(0.662745, 0.694118, 0.701961, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_1gwfn"]
 font_size = 21
@@ -252,6 +268,7 @@ z_as_relative = false
 position = Vector2(272, 869)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("4_wxfas")
+script = ExtResource("5_t2n50")
 
 [node name="Shadow" type="Sprite2D" parent="MainMenu/StartMenu/StatsButton"]
 self_modulate = Color(0.661346, 0.694725, 0.703056, 1)
@@ -268,6 +285,12 @@ offset_bottom = -66.0
 text = "Statistics"
 label_settings = SubResource("LabelSettings_7ikwi")
 horizontal_alignment = 1
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="MainMenu/StartMenu/StatsButton"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-160.667, -134.667)
+scale = Vector2(0.810491, 0.671717)
+texture_normal = ExtResource("11_d5d8c")
 
 [node name="DevelopmentalMenu" type="Node2D" parent="MainMenu"]
 visible = false
@@ -469,7 +492,6 @@ grow_vertical = 0
 color = Color(0, 0, 0, 0.52549)
 
 [node name="Delete" type="Label" parent="MainMenu/DevelopmentalMenu/BottomMenu/Background/AddMenu"]
-visible = false
 self_modulate = Color(0.501961, 0.780392, 0.207843, 1)
 offset_left = 476.0
 offset_top = 13.0
@@ -481,6 +503,14 @@ text = "Delete"
 self_modulate = Color(1, 1, 1, 0)
 scale = Vector2(0.13198, 0.166667)
 texture_normal = ExtResource("11_d5d8c")
+
+[node name="Used" type="Label" parent="MainMenu/DevelopmentalMenu/BottomMenu/Background/AddMenu/Delete"]
+layout_mode = 0
+offset_left = -472.0
+offset_right = -424.0
+offset_bottom = 26.0
+text = "Used: "
+label_settings = SubResource("LabelSettings_yogh1")
 
 [node name="RegressiveMenu" type="Node2D" parent="MainMenu"]
 visible = false
@@ -699,6 +729,13 @@ self_modulate = Color(1, 1, 1, 0)
 scale = Vector2(0.13198, 0.166667)
 texture_normal = ExtResource("11_d5d8c")
 
+[node name="Used" type="Label" parent="MainMenu/RegressiveMenu/BottomMenu/Background/AddMenu/Delete"]
+offset_left = -472.0
+offset_right = -424.0
+offset_bottom = 26.0
+text = "Used: "
+label_settings = SubResource("LabelSettings_yogh1")
+
 [node name="RewardMenu" type="Node2D" parent="MainMenu"]
 visible = false
 script = ExtResource("7_hq5gp")
@@ -913,6 +950,153 @@ self_modulate = Color(1, 1, 1, 0)
 scale = Vector2(0.13198, 0.166667)
 texture_normal = ExtResource("11_d5d8c")
 
+[node name="Used" type="Label" parent="MainMenu/RewardMenu/BottomMenu/Background/AddMenu/Delete"]
+offset_left = -472.0
+offset_right = -424.0
+offset_bottom = 26.0
+text = "Used: "
+label_settings = SubResource("LabelSettings_yogh1")
+
+[node name="StatisticsMenu" type="Node2D" parent="MainMenu"]
+visible = false
+script = ExtResource("16_cs6dp")
+
+[node name="DecorationLabel" type="Label" parent="MainMenu/StatisticsMenu"]
+offset_left = 133.0
+offset_top = 94.0
+offset_right = 395.0
+offset_bottom = 180.0
+text = "Statistics"
+label_settings = SubResource("LabelSettings_plyu3")
+
+[node name="Exit" type="Label" parent="MainMenu/StatisticsMenu"]
+offset_left = 130.0
+offset_top = 872.0
+offset_right = 392.0
+offset_bottom = 958.0
+text = "Exit"
+label_settings = SubResource("LabelSettings_plyu3")
+horizontal_alignment = 1
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="MainMenu/StatisticsMenu/Exit"]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.662437, 0.659091)
+texture_normal = ExtResource("11_d5d8c")
+
+[node name="BasicStats" type="Node2D" parent="MainMenu/StatisticsMenu"]
+
+[node name="Rank" type="Label" parent="MainMenu/StatisticsMenu/BasicStats"]
+offset_left = 8.0
+offset_top = 177.0
+offset_right = 97.0
+offset_bottom = 222.0
+text = "Rank: "
+label_settings = ExtResource("17_cirom")
+
+[node name="Number" type="Label" parent="MainMenu/StatisticsMenu/BasicStats/Rank"]
+layout_mode = 0
+offset_left = 87.0
+offset_right = 176.0
+offset_bottom = 45.0
+text = "Seq. 1 \"Sleeper\""
+label_settings = ExtResource("17_audaa")
+
+[node name="Experience" type="Label" parent="MainMenu/StatisticsMenu/BasicStats"]
+offset_left = 8.0
+offset_top = 222.0
+offset_right = 288.0
+offset_bottom = 270.0
+text = "Dev/Reg ratio: "
+label_settings = ExtResource("17_cirom")
+
+[node name="Number" type="Label" parent="MainMenu/StatisticsMenu/BasicStats/Experience"]
+layout_mode = 0
+offset_left = 210.0
+offset_right = 490.0
+offset_bottom = 48.0
+text = "80%"
+label_settings = ExtResource("17_audaa")
+
+[node name="TotalCollected" type="Label" parent="MainMenu/StatisticsMenu/BasicStats"]
+offset_left = 8.0
+offset_top = 267.0
+offset_right = 233.0
+offset_bottom = 312.0
+text = "Total shards collected: "
+label_settings = ExtResource("17_cirom")
+
+[node name="Number" type="Label" parent="MainMenu/StatisticsMenu/BasicStats/TotalCollected"]
+layout_mode = 0
+offset_left = 330.0
+offset_right = 727.0
+offset_bottom = 45.0
+text = "210"
+label_settings = ExtResource("17_audaa")
+
+[node name="DaysPlayed" type="Label" parent="MainMenu/StatisticsMenu/BasicStats"]
+offset_left = 8.0
+offset_top = 308.0
+offset_right = 198.0
+offset_bottom = 357.0
+text = "Days played: "
+label_settings = ExtResource("17_cirom")
+
+[node name="Number" type="Label" parent="MainMenu/StatisticsMenu/BasicStats/DaysPlayed"]
+layout_mode = 0
+offset_left = 187.0
+offset_right = 377.0
+offset_bottom = 49.0
+text = "7"
+label_settings = ExtResource("17_audaa")
+
+[node name="Graph" type="Node2D" parent="MainMenu/StatisticsMenu"]
+position = Vector2(25, 463)
+
+[node name="PlotSint" type="Control" parent="MainMenu/StatisticsMenu/Graph"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = -26.0
+offset_right = -11.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("19_ghkhv")
+
+[node name="Graph2D" type="Control" parent="MainMenu/StatisticsMenu/Graph/PlotSint"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 499.0
+offset_bottom = 386.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("20_5fj17")
+x_min = -5.0
+x_max = 0.0
+x_label = "Day"
+y_min = -50.0
+y_max = 50.0
+y_label = "EXP"
+background_color = Color(0.337255, 0.337255, 0.337255, 1)
+grid_horizontal_visible = true
+grid_vertical_visible = true
+metadata/_edit_layout_mode = 0
+metadata/_edit_use_custom_anchors = false
+
+[node name="Label" type="Label" parent="MainMenu/StatisticsMenu/Graph"]
+offset_left = -1.0
+offset_top = -72.0
+offset_right = 318.0
+offset_bottom = -27.0
+text = "Balanse of Exp Shards"
+label_settings = ExtResource("17_cirom")
+
 [node name="TopMenu" type="ColorRect" parent="MainMenu"]
 z_index = 10
 offset_left = -1.0
@@ -978,6 +1162,7 @@ position = Vector2(260, 40)
 [connection signal="pressed" from="MainMenu/StartMenu/DevelopmentalButton/TouchScreenButton" to="MainMenu" method="DevelopmentalButtonPressed"]
 [connection signal="pressed" from="MainMenu/StartMenu/RegressiveButton/TouchScreenButton" to="MainMenu" method="RegressiveMenuButtonPressed"]
 [connection signal="pressed" from="MainMenu/StartMenu/RewardButton/TouchScreenButton" to="MainMenu" method="RewardButtonPressed"]
+[connection signal="pressed" from="MainMenu/StartMenu/StatsButton/TouchScreenButton" to="MainMenu" method="StatisticButtonPressed"]
 [connection signal="pressed" from="MainMenu/DevelopmentalMenu/BottomMenu/Background/Add/TouchScreenButton" to="MainMenu/DevelopmentalMenu/BottomMenu" method="openAddMenu"]
 [connection signal="pressed" from="MainMenu/DevelopmentalMenu/BottomMenu/Background/Exit/TouchScreenButton" to="MainMenu/DevelopmentalMenu" method="exitFromDevelopmental"]
 [connection signal="pressed" from="MainMenu/DevelopmentalMenu/BottomMenu/Background/Modify/TouchScreenButton" to="MainMenu/DevelopmentalMenu/BottomMenu" method="modifyClicked"]
@@ -999,3 +1184,4 @@ position = Vector2(260, 40)
 [connection signal="value_changed" from="MainMenu/RewardMenu/BottomMenu/Background/AddMenu/ValueLabel/HSlider" to="MainMenu/RewardMenu/BottomMenu" method="updateReward"]
 [connection signal="pressed" from="MainMenu/RewardMenu/BottomMenu/Background/AddMenu/Add/TouchScreenButton" to="MainMenu/RewardMenu/BottomMenu" method="addNewDevelopmentalItem"]
 [connection signal="pressed" from="MainMenu/RewardMenu/BottomMenu/Background/AddMenu/Delete/TouchScreenButton" to="MainMenu/RewardMenu/BottomMenu" method="deleteItem"]
+[connection signal="pressed" from="MainMenu/StatisticsMenu/Exit/TouchScreenButton" to="MainMenu/StatisticsMenu" method="exit"]

@@ -17,11 +17,10 @@ func setUp():
 		$Reward.text = "Cost of RP: " + str(listItemResource.reward)
 	
 	if listItemResource.used:
-		listItemResource.used = true
 		$Done.visible = true
 		modulate = Color.GRAY
 	else:
-		listItemResource.used = false
+		print("poprawiam")
 		$Done.visible = false
 		modulate = Color.WHITE
 
@@ -38,8 +37,12 @@ func clicked():
 	
 	if !listItemResource.used:
 		listItemResource.used = true
-		$Done.visible = true
-		modulate = Color.GRAY
+		listItemResource.numberOfUsed += 1
+		if listItemResource.type == "Developmental":
+			system.stats.positiveNumber += 1
+		if listItemResource.type == "Regressive":
+			system.stats.negativeNumber += 1
+		setUp()
 		if listItemResource.type != "Reward": system.updateExpSystem(listItemResource.reward)
 		else:
 			if (system.stats.rewardPoints >= listItemResource.reward):
@@ -50,8 +53,12 @@ func clicked():
 				modulate = Color.WHITE
 	else:
 		listItemResource.used = false
-		$Done.visible = false
-		modulate = Color.WHITE
+		listItemResource.numberOfUsed -= 1
+		if listItemResource.type == "Developmental":
+			system.stats.positiveNumber -= 1
+		if listItemResource.type == "Regressive":
+			system.stats.negativeNumber -= 1
+		setUp()
 		if listItemResource.type != "Reward":
 			system.updateExpSystem(-listItemResource.reward)
 		else:
@@ -61,7 +68,6 @@ func clicked():
 func unclickAnimation():
 	var t = create_tween()
 	t.tween_property(self,"scale",Vector2(1,1),0.1)
-	self_modulate = Color.DARK_GRAY
 
 func modifyModeOn():
 	modifyMode = true

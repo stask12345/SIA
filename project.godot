@@ -19,13 +19,13 @@ boot_splash/bg_color=Color(0.141176, 0.141176, 0.141176, 1)
 
 window/size/viewport_width=540
 window/size/viewport_height=960
-window/handheld/orientation=1
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
+window/handheld/orientation=1
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/graph_2d/plugin.cfg")
 
 [input_devices]
 
