@@ -1,9 +1,10 @@
+ColorRect
+NinePatchRect
+Node2D
 Label
 Line2D
-ColorRect
 GraphNode
 GraphEdit
-Node2D
 TouchScreenButton
 Control
 LineEdit

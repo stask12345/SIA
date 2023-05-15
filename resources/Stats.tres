@@ -12,3 +12,7 @@ dayOfMonth = 999
 collectedExpShards = 0
 rewardsPointsAdded = 0
 listOfResources = Array[Resource]([])
+listOfDailyBalance = [0, 0, 0, 0, 0, 0, 0]
+negativeNumber = 0
+positiveNumber = 0
+daysPassed = 0

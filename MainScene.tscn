@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://314n5nllo05g"]
+[gd_scene load_steps=42 format=3 uid="uid://314n5nllo05g"]
 
 [ext_resource type="Script" path="res://scripts/System.gd" id="1_sydhc"]
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="2_ralj5"]
@@ -22,6 +22,7 @@
 [ext_resource type="LabelSettings" uid="uid://5n4l1rhh4cj" path="res://resources/BoldGreyLabel.tres" id="17_cirom"]
 [ext_resource type="Script" path="res://examples/plot_sint.gd" id="19_ghkhv"]
 [ext_resource type="Script" path="res://addons/graph_2d/graph_2d.gd" id="20_5fj17"]
+[ext_resource type="Texture2D" uid="uid://bois5sgp03pos" path="res://graphics/buttonBackgroundSmall (8).svg" id="21_vimgq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7ikwi"]
 font_size = 34
@@ -730,6 +731,7 @@ scale = Vector2(0.13198, 0.166667)
 texture_normal = ExtResource("11_d5d8c")
 
 [node name="Used" type="Label" parent="MainMenu/RegressiveMenu/BottomMenu/Background/AddMenu/Delete"]
+layout_mode = 0
 offset_left = -472.0
 offset_right = -424.0
 offset_bottom = 26.0
@@ -951,6 +953,7 @@ scale = Vector2(0.13198, 0.166667)
 texture_normal = ExtResource("11_d5d8c")
 
 [node name="Used" type="Label" parent="MainMenu/RewardMenu/BottomMenu/Background/AddMenu/Delete"]
+layout_mode = 0
 offset_left = -472.0
 offset_right = -424.0
 offset_bottom = 26.0
@@ -1096,6 +1099,32 @@ offset_right = 318.0
 offset_bottom = -27.0
 text = "Balanse of Exp Shards"
 label_settings = ExtResource("17_cirom")
+
+[node name="Communication" type="Node2D" parent="MainMenu"]
+z_index = 100
+position = Vector2(88, 314)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MainMenu/Communication"]
+self_modulate = Color(0, 0.517647, 0.815686, 1)
+clip_contents = true
+offset_left = -14.0
+offset_top = -146.0
+offset_right = 376.0
+offset_bottom = 451.0
+texture = ExtResource("21_vimgq")
+patch_margin_left = 51
+patch_margin_top = 55
+patch_margin_right = 38
+patch_margin_bottom = 46
+
+[node name="ColorRect" type="ColorRect" parent="MainMenu/Communication/NinePatchRect"]
+z_index = -1
+layout_mode = 0
+offset_left = 20.0
+offset_top = 13.0
+offset_right = 376.0
+offset_bottom = 580.0
+color = Color(0.309804, 1, 1, 1)
 
 [node name="TopMenu" type="ColorRect" parent="MainMenu"]
 z_index = 10
