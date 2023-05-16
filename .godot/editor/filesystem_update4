@@ -9,5 +9,7 @@ res://resources/BlueSuperLabel.tres
 res://resources/BlueLabel.tres
 res://resources/GreyLabel.tres
 res://resources/BoldGreyLabel.tres
+res://scripts/StatisticsMenu.gd
 res://resources/ListItemObject.tscn
 res://examples/plot_sint.tscn
+res://scripts/Communication.gd

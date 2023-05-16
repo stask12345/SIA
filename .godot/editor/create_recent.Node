@@ -1,7 +1,10 @@
-ColorRect
-NinePatchRect
 Node2D
 Label
+Polygon2D
+ProgressBar
+AnimationPlayer
+ColorRect
+NinePatchRect
 Line2D
 GraphNode
 GraphEdit
@@ -9,7 +12,6 @@ TouchScreenButton
 Control
 LineEdit
 Sprite2D
-AnimationPlayer
 Button
 Panel
 HSlider
@@ -27,4 +29,3 @@ CPUParticles2D
 Node
 Marker2D
 PointLight2D
-Polygon2D

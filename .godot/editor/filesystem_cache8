@@ -1,7 +1,7 @@
 bdbec74c6e5bd72edee867077d70896c
-::res://::1684142448
+::res://::1684228514
 export_presets.cfg::TextFile::-1::1683788054::0::1::::<><>::
-MainScene.tscn::PackedScene::2020747047879483302::1684142448::0::1::::<><>::res://scripts/System.gd<>res://scripts/MainMenu.gd<>uid://cptchtqkpb1ec<>uid://3fxa7kaj8x30<>res://scripts/menuButton.gd<>uid://c28iptu6bk0yf<>res://scripts/DevelopmentalMenu.gd<>res://scripts/TopMenu.gd<>res://scripts/line.gd<>res://scripts/BottomMenu.gd<>uid://d2nql5dq7v4vk<>uid://b7npinyx14uas<>uid://dm4kkbwjdjq8j<>uid://c0gd8b3r2s2io<>uid://dbr8hlb4vjusq<>uid://bybjb77qv5un4<>uid://cbulftgi8e33e<>res://scripts/StatisticsMenu.gd<>uid://ck7ly6tq5x8vn<>uid://5n4l1rhh4cj<>res://examples/plot_sint.gd<>res://addons/graph_2d/graph_2d.gd
+MainScene.tscn::PackedScene::2020747047879483302::1684228514::0::1::::<><>::res://scripts/System.gd<>res://scripts/MainMenu.gd<>uid://cptchtqkpb1ec<>uid://3fxa7kaj8x30<>res://scripts/menuButton.gd<>uid://c28iptu6bk0yf<>res://scripts/DevelopmentalMenu.gd<>res://scripts/TopMenu.gd<>res://scripts/line.gd<>res://scripts/BottomMenu.gd<>uid://d2nql5dq7v4vk<>uid://b7npinyx14uas<>uid://dm4kkbwjdjq8j<>uid://c0gd8b3r2s2io<>uid://dbr8hlb4vjusq<>uid://bybjb77qv5un4<>uid://cbulftgi8e33e<>res://scripts/StatisticsMenu.gd<>uid://ck7ly6tq5x8vn<>uid://5n4l1rhh4cj<>res://examples/plot_sint.gd<>res://addons/graph_2d/graph_2d.gd<>res://scripts/Communication.gd<>uid://bownm01t5mcu
 ::res://addons/::1684134889
 ::res://addons/graph_2d/::1684134913
 graph_2d.gd::GDScript::-1::1684134889::0::1::::Graph2D<>Control<>res://addons/graph_2d/graph_2d.svg::
@@ -14,32 +14,36 @@ coordinate.gd::GDScript::-1::1684134889::0::1::::<>Label<>::
 grid.gd::GDScript::-1::1684134889::0::1::::<>Control<>::
 legend.gd::GDScript::-1::1684134889::0::1::::<>Control<>::
 plot_2d.gd::GDScript::-1::1684134889::0::1::::LinePlot<>Control<>::
-::res://examples/::1684142194
+::res://examples/::1684228514
 plot_sint.gd::GDScript::-1::1684134889::0::1::::<>Control<>::
-plot_sint.tscn::PackedScene::8745649787525565503::1684142194::0::1::::<><>::res://examples/plot_sint.gd<>res://addons/graph_2d/graph_2d.gd
+plot_sint.tscn::PackedScene::8745649787525565503::1684228514::0::1::::<><>::res://examples/plot_sint.gd<>res://addons/graph_2d/graph_2d.gd
 single_plot.gd::GDScript::-1::1684134889::0::1::::<>Control<>::
 single_plot.tscn::PackedScene::3640788172478214070::1684134889::0::1::::<><>::res://examples/single_plot.gd<>res://addons/graph_2d/graph_2d.gd
-::res://graphics/::1684147245
+::res://graphics/::1684230303
+arrow.svg::CompressedTexture2D::8814508093745351873::1684230303::1684230303::1::::<><>::
 barBackground.svg::CompressedTexture2D::6736578164597752537::1683706424::1683715497::1::::<><>::
 barDecoration.svg::CompressedTexture2D::2698685512260483316::1683706424::1683715497::1::::<><>::
 buttonBackground.svg::CompressedTexture2D::1977007697677434693::1683706424::1683715611::1::::<><>::
 buttonBackgroundSmall (8).svg::CompressedTexture2D::3386726951750163066::1684147245::1684147245::1::::<><>::
 buttonBackgroundSmall.svg::CompressedTexture2D::8062020244392487363::1683708043::1684134913::1::::<><>::
 buttonDecoration.svg::CompressedTexture2D::6295641113666598465::1683709997::1684134913::1::::<><>::
+logo test file.svg::CompressedTexture2D::100449791464711720::1684228124::1684228126::1::::<><>::
+SIS logo.png::CompressedTexture2D::3579499192062320680::1684227990::1684227992::1::::<><>::
+SIS Logo.svg::CompressedTexture2D::3478252020246274416::1684227710::1684227710::1::::<><>::
 square.svg::CompressedTexture2D::5865032156961682986::1683706424::1683715753::1::::<><>::
-::res://resources/::1684142194
-BlueLabel.tres::LabelSettings::4884995589615637852::1684142193::0::1::::<><>::
-BlueSuperLabel.tres::LabelSettings::4073567278425919591::1684142193::0::1::::<><>::
-BoldGreyLabel.tres::LabelSettings::62773060254830985::1684142194::0::1::::<><>::
-GreenLabel.tres::LabelSettings::9082190436831678640::1684142193::0::1::::<><>::
-GreenSuperLabel.tres::LabelSettings::4660226353115430858::1684142193::0::1::::<><>::
-GreyLabel.tres::LabelSettings::5541502296213725491::1684142194::0::1::::<><>::
+::res://resources/::1684228514
+BlueLabel.tres::LabelSettings::4884995589615637852::1684222161::0::1::::<><>::
+BlueSuperLabel.tres::LabelSettings::4073567278425919591::1684222161::0::1::::<><>::
+BoldGreyLabel.tres::LabelSettings::62773060254830985::1684222161::0::1::::<><>::
+GreenLabel.tres::LabelSettings::9082190436831678640::1684222160::0::1::::<><>::
+GreenSuperLabel.tres::LabelSettings::4660226353115430858::1684222160::0::1::::<><>::
+GreyLabel.tres::LabelSettings::5541502296213725491::1684222161::0::1::::<><>::
 LineItem.tres::Resource::1775077496070735972::1683804123::0::1::::<><>::res://scripts/listItemResource.gd
-ListItemObject.tscn::PackedScene::3572257642195794106::1684142194::0::1::::<><>::uid://dm4kkbwjdjq8j<>uid://cvxwj3qd8660l<>res://scripts/listItem.gd
-RedLabel.tres::LabelSettings::7266562058502703164::1684142193::0::1::::<><>::
-RedSuperLabel.tres::LabelSettings::6540189903625627370::1684142193::0::1::::<><>::
-Stats.tres::Resource::1599320222447433933::1684142193::0::1::::<><>::res://scripts/stats.gd
-::res://scripts/::1684142438
+ListItemObject.tscn::PackedScene::3572257642195794106::1684228514::0::1::::<><>::uid://dm4kkbwjdjq8j<>uid://cvxwj3qd8660l<>res://scripts/listItem.gd
+RedLabel.tres::LabelSettings::7266562058502703164::1684222160::0::1::::<><>::
+RedSuperLabel.tres::LabelSettings::6540189903625627370::1684222160::0::1::::<><>::
+Stats.tres::Resource::1599320222447433933::1684222160::0::1::::<><>::res://scripts/stats.gd
+::res://scripts/::1684228514
 BottomMenu.gd::GDScript::-1::1684134889::0::1::::<>CanvasLayer<>::
 DevelopmentalMenu.gd::GDScript::-1::1684134889::0::1::::<>Node2D<>::
 line.gd::GDScript::-1::1683706424::0::1::::<>Line2D<>::
@@ -47,7 +51,8 @@ listItem.gd::GDScript::-1::1684134889::0::1::::<>Control<>::
 listItemResource.gd::GDScript::-1::1684134889::0::1::::<>RefCounted<>::
 MainMenu.gd::GDScript::-1::1684134889::0::1::::<>CanvasLayer<>::
 menuButton.gd::GDScript::-1::1683706424::0::1::::<>Sprite2D<>::
-StatisticsMenu.gd::GDScript::-1::1684134889::0::1::::<>Node2D<>::
+Communication.gd::GDScript::-1::1684228514::0::1::::<>Node2D<>::
+StatisticsMenu.gd::GDScript::-1::1684222161::0::1::::<>Node2D<>::
 stats.gd::GDScript::-1::1684134889::0::1::::<>RefCounted<>::
-System.gd::GDScript::-1::1684142438::0::1::::<>Node2D<>::
+System.gd::GDScript::-1::1684228150::0::1::::<>Node2D<>::
 TopMenu.gd::GDScript::-1::1684134889::0::1::::<>ColorRect<>::
