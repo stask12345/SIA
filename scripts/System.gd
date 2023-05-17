@@ -3,7 +3,7 @@ extends Node2D
 @export var stats : Resource
 
 var rankNames = ["Newbie","Sleeper","Awakened","Apprentice","Experienced","Succesfull fellow","Ascended","Unyielding","Magician","One in Control","Master of Mind & Body","Supreme Genius", "The Fool"]
-var rankGoals = [50,75,100,125,150,150,200,200,250,300,330,400,7777]
+var rankGoals = [50,75,100,150,175,200,200,225,250,300,350,400,7777]
 var savePath = "user://save.tres"
 var loaded = false
 

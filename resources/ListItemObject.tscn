@@ -82,4 +82,6 @@ points = PackedVector2Array(67, 66, 63, 84, 81, 80, 133, 23, 118, 12, 66, 68)
 width = 6.0
 default_color = Color(0.432112, 0.766431, 0.245781, 1)
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="pressed" from="TouchScreenButton" to="." method="clicked"]
