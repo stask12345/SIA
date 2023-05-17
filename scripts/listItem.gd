@@ -5,6 +5,9 @@ extends Control
 @onready var modifyMenu = get_node("/root/MainScene/MainMenu/DevelopmentalMenu/BottomMenu")
 @onready var modifyMenuRecessive = get_node("/root/MainScene/MainMenu/RegressiveMenu/BottomMenu")
 @onready var modifyMenuReward = get_node("/root/MainScene/MainMenu/RewardMenu/BottomMenu")
+@onready var ping = get_node("/root/MainScene/Ping")
+@onready var regressiveSound = get_node("/root/MainScene/Regressive")
+@onready var rewardSound = get_node("/root/MainScene/Reward")
 var modifyMode = false
 
 func _ready():
@@ -43,9 +46,15 @@ func clicked():
 		if listItemResource.type == "Regressive":
 			system.stats.negativeNumber += 1
 		setUp()
-		if listItemResource.type != "Reward": system.updateExpSystem(listItemResource.reward)
+		if listItemResource.type != "Reward": 
+			system.updateExpSystem(listItemResource.reward)
+			if listItemResource.type == "Developmental":
+				ping.play()
+			if listItemResource.type == "Regressive":
+				regressiveSound.play()
 		else:
 			if (system.stats.rewardPoints >= listItemResource.reward):
+				rewardSound.play()
 				system.updateRPSystem(listItemResource.reward)
 			else:
 				listItemResource.used = false

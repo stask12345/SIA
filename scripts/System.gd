@@ -8,7 +8,7 @@ var savePath = "user://save.tres"
 var loaded = false
 
 func _init():
-	DirAccess.remove_absolute(savePath)
+	#DirAccess.remove_absolute(savePath)
 	loadData()
 
 func timeUpdate():
@@ -62,6 +62,7 @@ func updateExpSystem(shardsToAdd):
 			stats.rewardPoints += 3
 			stats.maxRank += 1
 			$MainMenu/Communication.evolutionScreenOn()
+			%Evolution.play()
 		stats.rank += 1
 	
 	if stats.rank != 0 && stats.expShards < 0: #Level down
