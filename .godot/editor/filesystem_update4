@@ -1,4 +1,4 @@
-res://MainScene.tscn
+res://resources/ListItemObject.tscn
 res://scripts/System.gd
 res://resources/Stats.tres
 res://resources/GreenLabel.tres
@@ -9,7 +9,6 @@ res://resources/BlueSuperLabel.tres
 res://resources/BlueLabel.tres
 res://resources/GreyLabel.tres
 res://resources/BoldGreyLabel.tres
-res://scripts/StatisticsMenu.gd
-res://resources/ListItemObject.tscn
 res://examples/plot_sint.tscn
+res://MainScene.tscn
 res://scripts/Communication.gd

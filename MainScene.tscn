@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://314n5nllo05g"]
+[gd_scene load_steps=51 format=3 uid="uid://314n5nllo05g"]
 
 [ext_resource type="Script" path="res://scripts/System.gd" id="1_sydhc"]
 [ext_resource type="Script" path="res://scripts/MainMenu.gd" id="2_ralj5"]
@@ -248,9 +248,186 @@ tracks/12/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0.129412), Color(1, 1, 1, 1)]
 }
+tracks/13/type = "method"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath(".")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(2.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"completeAnimation"
+}]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("UpContainer/SeqLabel:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_utw3l"]
+resource_name = "down"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UpContainer/Arrow:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.196147, 0.258816),
+"update": 0,
+"values": [Vector2(341, 0), Vector2(341, 1127)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UpContainer/Arrow:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UpContainer/EvolvedLabel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UpContainer/EvolvedLabel:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.164939, 0.366021),
+"update": 0,
+"values": [Vector2(-50, -137), Vector2(-460, -137)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DownContainer/evo1:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("DownContainer/evo2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DownContainer/ArrowEvolution:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("DownContainer/ArrowEvolution:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.125, 0.241484),
+"update": 0,
+"values": [Vector2(183, 440), Vector2(183, 490)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Quote:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Quote:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.0941176)]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hideManu"
+}]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("UpContainer/SeqLabel:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yikcj"]
 _data = {
+"down": SubResource("Animation_utw3l"),
 "idle": SubResource("Animation_c38c5")
 }
 
@@ -1288,6 +1465,7 @@ text = "Balanse of Exp Shards"
 label_settings = ExtResource("17_cirom")
 
 [node name="Communication" type="Node2D" parent="MainMenu"]
+visible = false
 z_index = 100
 position = Vector2(88, 314)
 script = ExtResource("21_2naf2")
@@ -1349,7 +1527,7 @@ offset_left = -90.0
 offset_top = 231.0
 offset_right = 454.0
 offset_bottom = 390.0
-text = "Rook"
+text = "rook 2"
 label_settings = SubResource("LabelSettings_fxqxn")
 horizontal_alignment = 1
 vertical_alignment = 2
@@ -1368,15 +1546,22 @@ libraries = {
 }
 
 [node name="Quote" type="Label" parent="MainMenu/Communication"]
+visible = false
 self_modulate = Color(1, 1, 1, 0.129412)
-offset_left = -90.0
-offset_top = 297.0
-offset_right = 450.0
-offset_bottom = 646.0
-text = "\"You're not clueless any more. But you are still not in control of your body, just like a sleeping person\""
+offset_left = -89.0
+offset_top = 182.0
+offset_right = 451.0
+offset_bottom = 632.0
+text = "\"You are truly a Fool standing on the very peak of life. You choose to not simply enjoy life, but to become a fool and to fool others. With unyielding determitation you broken the limits and the limits broke you. What more is there to say? You know yourself the best. Was it worth it? Yes? Then live and have no regrets.\""
 label_settings = SubResource("LabelSettings_mcloj")
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="MainMenu/Communication"]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(-92, -314)
+scale = Vector2(0.680101, 1.01425)
+texture_normal = ExtResource("4_wxfas")
 
 [node name="TopMenu" type="ColorRect" parent="MainMenu"]
 z_index = 10
@@ -1466,3 +1651,4 @@ position = Vector2(260, 40)
 [connection signal="pressed" from="MainMenu/RewardMenu/BottomMenu/Background/AddMenu/Add/TouchScreenButton" to="MainMenu/RewardMenu/BottomMenu" method="addNewDevelopmentalItem"]
 [connection signal="pressed" from="MainMenu/RewardMenu/BottomMenu/Background/AddMenu/Delete/TouchScreenButton" to="MainMenu/RewardMenu/BottomMenu" method="deleteItem"]
 [connection signal="pressed" from="MainMenu/StatisticsMenu/Exit/TouchScreenButton" to="MainMenu/StatisticsMenu" method="exit"]
+[connection signal="pressed" from="MainMenu/Communication/TouchScreenButton" to="MainMenu/Communication" method="_on_touch_screen_button_pressed"]
