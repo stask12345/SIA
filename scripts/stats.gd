@@ -6,7 +6,7 @@
 @export var collectedExpShards = 0
 @export var rewardsPointsAdded = 0 #For each 50 shards
 @export var listOfResources :Array[Resource] = []
-@export var listOfDailyBalance = [0,0,0,0,0,0,0]
-@export var negativeNumber = 0
-@export var positiveNumber = 0
-@export var daysPassed = 0
+@export var listOfDailyBalance = [0,0,-5,5,-5,0,10]
+@export var negativeNumber = 4
+@export var positiveNumber = 4
+@export var daysPassed = 4

@@ -11,17 +11,4 @@ res://resources/GreyLabel.tres
 res://resources/BoldGreyLabel.tres
 res://examples/plot_sint.tscn
 res://MainScene.tscn
-res://scripts/listItem.gd
-res://scripts/BottomMenu.gd
-res://scripts/Communication.gd
-res://scripts/DevelopmentalMenu.gd
-res://addons/graph_2d/graph_2d.gd
-res://scripts/line.gd
-res://scripts/listItemResource.gd
-res://scripts/MainMenu.gd
-res://scripts/menuButton.gd
-res://examples/plot_sint.gd
-res://examples/single_plot.gd
-res://scripts/StatisticsMenu.gd
 res://scripts/stats.gd
-res://scripts/TopMenu.gd

@@ -112,4 +112,4 @@ func loadListItemResources():
 			$MainMenu/RewardMenu.createNewDevelopmentalItem(r)
 	
 	timeUpdate()
-	print(stats.listOfDailyBalance)
+	saveData()
